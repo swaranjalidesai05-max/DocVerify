@@ -1,0 +1,172 @@
+{
+  "phase": "Phase 3 \u2014 Forgery Localization & Grad-CAM Explainability",
+  "timestamp": "2026-10-17 13:28:20",
+  "test_eval_count": 169,
+  "selected_threshold": 0.7,
+  "validation_selection_metric": "Optimal Mean IoU (0.0163) on 191 val fakes",
+  "pointing_game": {
+    "gradcam_accuracy": 0.0059,
+    "gradcam_hits": 1,
+    "hirescam_accuracy": 0.0059,
+    "hirescam_hits": 1
+  },
+  "bounding_box_iou": {
+    "threshold": 0.7,
+    "mean_iou": 0.0085,
+    "median_iou": 0.0,
+    "pct_iou_gt_zero": 32.54,
+    "pct_iou_ge_03": 0.0,
+    "pct_iou_ge_05": 0.0
+  },
+  "forgery_type_breakdown": [
+    {
+      "forgery_type": "Crop_and_Replace",
+      "samples": 24,
+      "pointing_game_accuracy": 0.0,
+      "mean_iou": 0.0051,
+      "median_iou": 0.0,
+      "pct_iou_gt0": 29.17,
+      "classification_accuracy": 70.83
+    },
+    {
+      "forgery_type": "Inpaint_and_Rewrite",
+      "samples": 145,
+      "pointing_game_accuracy": 0.69,
+      "mean_iou": 0.0091,
+      "median_iou": 0.0,
+      "pct_iou_gt0": 33.1,
+      "classification_accuracy": 78.62
+    }
+  ],
+  "document_type_breakdown": [
+    {
+      "template": "alb_id",
+      "samples": 25,
+      "pointing_game_accuracy": 0.0,
+      "mean_iou": 0.0,
+      "median_iou": 0.0,
+      "classification_accuracy": 36.0
+    },
+    {
+      "template": "aze_passport",
+      "samples": 18,
+      "pointing_game_accuracy": 0.0,
+      "mean_iou": 0.0137,
+      "median_iou": 0.0043,
+      "classification_accuracy": 77.78
+    },
+    {
+      "template": "esp_id",
+      "samples": 21,
+      "pointing_game_accuracy": 0.0,
+      "mean_iou": 0.0036,
+      "median_iou": 0.0,
+      "classification_accuracy": 71.43
+    },
+    {
+      "template": "est_id",
+      "samples": 15,
+      "pointing_game_accuracy": 6.67,
+      "mean_iou": 0.0111,
+      "median_iou": 0.0,
+      "classification_accuracy": 100.0
+    },
+    {
+      "template": "fin_id",
+      "samples": 20,
+      "pointing_game_accuracy": 0.0,
+      "mean_iou": 0.0079,
+      "median_iou": 0.0,
+      "classification_accuracy": 100.0
+    },
+    {
+      "template": "grc_passport",
+      "samples": 19,
+      "pointing_game_accuracy": 0.0,
+      "mean_iou": 0.0146,
+      "median_iou": 0.0,
+      "classification_accuracy": 52.63
+    },
+    {
+      "template": "lva_passport",
+      "samples": 7,
+      "pointing_game_accuracy": 0.0,
+      "mean_iou": 0.0021,
+      "median_iou": 0.0,
+      "classification_accuracy": 85.71
+    },
+    {
+      "template": "rus_internalpassport",
+      "samples": 14,
+      "pointing_game_accuracy": 0.0,
+      "mean_iou": 0.0217,
+      "median_iou": 0.007,
+      "classification_accuracy": 85.71
+    },
+    {
+      "template": "srb_passport",
+      "samples": 19,
+      "pointing_game_accuracy": 0.0,
+      "mean_iou": 0.0032,
+      "median_iou": 0.0,
+      "classification_accuracy": 100.0
+    },
+    {
+      "template": "svk_id",
+      "samples": 11,
+      "pointing_game_accuracy": 0.0,
+      "mean_iou": 0.0124,
+      "median_iou": 0.0,
+      "classification_accuracy": 100.0
+    }
+  ],
+  "field_level_top5": [
+    {
+      "field": "authority",
+      "samples": 4,
+      "pointing_game_accuracy": 0.0,
+      "mean_iou": 0.0053,
+      "avg_gt_area_pct": 0.618,
+      "classification_accuracy": 75.0
+    },
+    {
+      "field": "birth_country",
+      "samples": 1,
+      "pointing_game_accuracy": 0.0,
+      "mean_iou": 0.0,
+      "avg_gt_area_pct": 0.106,
+      "classification_accuracy": 0.0
+    },
+    {
+      "field": "birth_date",
+      "samples": 6,
+      "pointing_game_accuracy": 0.0,
+      "mean_iou": 0.0207,
+      "avg_gt_area_pct": 0.654,
+      "classification_accuracy": 100.0
+    },
+    {
+      "field": "birth_date_22",
+      "samples": 4,
+      "pointing_game_accuracy": 0.0,
+      "mean_iou": 0.0,
+      "avg_gt_area_pct": 0.051,
+      "classification_accuracy": 100.0
+    },
+    {
+      "field": "birth_place",
+      "samples": 5,
+      "pointing_game_accuracy": 0.0,
+      "mean_iou": 0.03,
+      "avg_gt_area_pct": 0.445,
+      "classification_accuracy": 100.0
+    }
+  ],
+  "downsampling_ablation": {
+    "false_negatives_evaluated": 38,
+    "fn_avg_gt_area_pct": 0.475,
+    "tp_avg_gt_area_pct": 0.513,
+    "patch_recovery_count": 23,
+    "patch_recovery_rate_pct": 60.53
+  }
+}

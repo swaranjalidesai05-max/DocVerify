@@ -1,0 +1,109 @@
+{
+  "total_images": 2222,
+  "split_counts": {
+    "train": 1565,
+    "val": 337,
+    "test": 320
+  },
+  "identity_audit": {
+    "train_val_cluster_overlap": 0,
+    "train_test_cluster_overlap": 0,
+    "val_test_cluster_overlap": 0,
+    "train_val_base_overlap": 0,
+    "train_test_base_overlap": 0,
+    "val_test_base_overlap": 0,
+    "leakage_status": "ZERO_LEAKAGE"
+  },
+  "hash_audit": {
+    "unique_md5_hashes": 2221,
+    "total_exact_duplicate_pairs": 1,
+    "cross_split_md5_collisions": 0,
+    "cross_split_details": {}
+  },
+  "perceptual_hash_audit": {},
+  "template_audit": {
+    "test": {
+      "alb_id": 42,
+      "aze_passport": 35,
+      "esp_id": 36,
+      "est_id": 29,
+      "fin_id": 35,
+      "grc_passport": 34,
+      "lva_passport": 21,
+      "rus_internalpassport": 29,
+      "srb_passport": 34,
+      "svk_id": 25
+    },
+    "train": {
+      "alb_id": 152,
+      "aze_passport": 160,
+      "esp_id": 151,
+      "est_id": 149,
+      "fin_id": 153,
+      "grc_passport": 156,
+      "lva_passport": 169,
+      "rus_internalpassport": 160,
+      "srb_passport": 155,
+      "svk_id": 160
+    },
+    "val": {
+      "alb_id": 28,
+      "aze_passport": 31,
+      "esp_id": 35,
+      "est_id": 42,
+      "fin_id": 33,
+      "grc_passport": 31,
+      "lva_passport": 32,
+      "rus_internalpassport": 36,
+      "srb_passport": 33,
+      "svk_id": 36
+    }
+  },
+  "color_mode_audit": {
+    "test": {
+      "CMYK": 78,
+      "RGB": 242
+    },
+    "train": {
+      "CMYK": 349,
+      "RGB": 1216
+    },
+    "val": {
+      "CMYK": 73,
+      "RGB": 264
+    }
+  },
+  "dimension_audit": {
+    "test_929x580": 29,
+    "test_931x584": 35,
+    "test_1134x716": 25,
+    "test_1136x803": 34,
+    "test_1327x827": 36,
+    "test_1519x1069": 29,
+    "test_2163x1488": 34,
+    "test_2167x1360": 42,
+    "test_2167x1521": 21,
+    "test_2167x1525": 35,
+    "train_929x580": 149,
+    "train_931x584": 153,
+    "train_1134x716": 160,
+    "train_1136x803": 156,
+    "train_1327x827": 151,
+    "train_1519x1069": 160,
+    "train_2163x1488": 155,
+    "train_2167x1360": 152,
+    "train_2167x1521": 169,
+    "train_2167x1525": 160,
+    "val_929x580": 42,
+    "val_931x584": 33,
+    "val_1134x716": 36,
+    "val_1136x803": 31,
+    "val_1327x827": 35,
+    "val_1519x1069": 36,
+    "val_2163x1488": 33,
+    "val_2167x1360": 28,
+    "val_2167x1521": 32,
+    "val_2167x1525": 31
+  },
+  "exif_audit": {}
+}

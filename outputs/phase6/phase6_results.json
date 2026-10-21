@@ -1,0 +1,560 @@
+{
+  "project": "DocVerify - AI-Based Document Verification and Forgery Detection System",
+  "phase": "Phase 6: Scientific Validation, Shortcut Auditing, Robustness Analysis & Production Fusion",
+  "frozen_test_set_size": 320,
+  "class_balance": {
+    "reals": 151,
+    "fakes": 169
+  },
+  "baseline_phase2": {
+    "description": "Historical Phase 2: Resize(256) -> CenterCrop(224)",
+    "accuracy": 0.796875,
+    "precision": 0.8291139240506329,
+    "recall": 0.7751479289940828,
+    "f1_score": 0.8012232415902141,
+    "roc_auc": 0.9112426035502958,
+    "brier_score": 0.1321434936880872,
+    "confusion_matrix": {
+      "TN": 124,
+      "FP": 27,
+      "FN": 38,
+      "TP": 131
+    }
+  },
+  "preprocessing_ablation": {
+    "A_centercrop_224_baseline": {
+      "description": "Historical Phase 2: Resize(256) -> CenterCrop(224)",
+      "accuracy": 0.796875,
+      "precision": 0.8291139240506329,
+      "recall": 0.7751479289940828,
+      "f1_score": 0.8012232415902141,
+      "roc_auc": 0.9112426035502958,
+      "brier_score": 0.1321434936880872,
+      "confusion_matrix": {
+        "TN": 124,
+        "FP": 27,
+        "FN": 38,
+        "TP": 131
+      }
+    },
+    "B_letterbox_224": {
+      "description": "Geometry-Preserving: Aspect-Ratio Letterbox Padding to 224x224",
+      "accuracy": 0.515625,
+      "precision": 0.553030303030303,
+      "recall": 0.4319526627218935,
+      "f1_score": 0.4850498338870432,
+      "roc_auc": 0.5254124377914495,
+      "brier_score": 0.2797100402493529,
+      "confusion_matrix": {
+        "TN": 92,
+        "FP": 59,
+        "FN": 96,
+        "TP": 73
+      }
+    },
+    "C_letterbox_384": {
+      "description": "High-Resolution Letterbox: Aspect-Ratio Letterbox Padding to 384x384",
+      "accuracy": 0.60625,
+      "precision": 0.7590361445783133,
+      "recall": 0.3727810650887574,
+      "f1_score": 0.5,
+      "roc_auc": 0.65206316861946,
+      "brier_score": 0.24067738867827448,
+      "confusion_matrix": {
+        "TN": 131,
+        "FP": 20,
+        "FN": 106,
+        "TP": 63
+      }
+    },
+    "D_standardized_jpeg_recompressed_224": {
+      "description": "Standardized Compression: Uniform JPEG Recompression (Q=85) + CenterCrop(224)",
+      "accuracy": 0.734375,
+      "precision": 0.7019230769230769,
+      "recall": 0.863905325443787,
+      "f1_score": 0.7745358090185677,
+      "roc_auc": 0.7938398840079941,
+      "brier_score": 0.20008829080809187,
+      "confusion_matrix": {
+        "TN": 89,
+        "FP": 62,
+        "FN": 23,
+        "TP": 146
+      }
+    }
+  },
+  "shortcut_audit": {
+    "metadata_only": {
+      "features": [
+        "width",
+        "height",
+        "aspect_ratio",
+        "file_size"
+      ],
+      "accuracy": 1.0,
+      "roc_auc": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "color_mode_only": {
+      "features": [
+        "color_mode_is_cmyk"
+      ],
+      "accuracy": 0.771875,
+      "roc_auc": 0.7582781456953642,
+      "precision": 0.6983471074380165,
+      "recall": 1.0,
+      "f1_score": 0.8223844282238443
+    },
+    "color_stats_only": {
+      "features": [
+        "r_mean",
+        "g_mean",
+        "b_mean",
+        "r_std",
+        "g_std",
+        "b_std",
+        "brightness",
+        "contrast"
+      ],
+      "accuracy": 0.540625,
+      "roc_auc": 0.5495317214624398,
+      "precision": 0.5387323943661971,
+      "recall": 0.9053254437869822,
+      "f1_score": 0.6754966887417219
+    },
+    "noise_sharpness_only": {
+      "features": [
+        "laplacian_var"
+      ],
+      "accuracy": 0.603125,
+      "roc_auc": 0.645146753399428,
+      "precision": 0.5945945945945946,
+      "recall": 0.7810650887573964,
+      "f1_score": 0.6751918158567775
+    },
+    "combined_shortcuts": {
+      "features": [
+        "width",
+        "height",
+        "aspect_ratio",
+        "file_size",
+        "color_mode_is_cmyk",
+        "r_mean",
+        "g_mean",
+        "b_mean",
+        "r_std",
+        "g_std",
+        "b_std",
+        "brightness",
+        "contrast",
+        "laplacian_var"
+      ],
+      "accuracy": 1.0,
+      "roc_auc": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    }
+  },
+  "dedicated_patch_model": {
+    "accuracy": 0.99375,
+    "precision": 1.0,
+    "recall": 0.9881656804733728,
+    "f1_score": 0.9940476190476191,
+    "roc_auc": 0.9999608135115012
+  },
+  "tiled_and_canonical_inspection": {
+    "dataset_size": 320,
+    "reals": 151,
+    "fakes": 169,
+    "canonical_priors": {
+      "max_aggregation": {
+        "accuracy": 0.559375,
+        "precision": 0.5451612903225806,
+        "recall": 1.0,
+        "f1_score": 0.7056367432150313,
+        "roc_auc": 0.6884674164348132
+      },
+      "mean_aggregation": {
+        "accuracy": 0.740625,
+        "precision": 0.7009345794392523,
+        "recall": 0.8875739644970414,
+        "f1_score": 0.783289817232376,
+        "roc_auc": 0.7515184764293272
+      },
+      "top3_mean_aggregation": {
+        "accuracy": 0.625,
+        "precision": 0.5853658536585366,
+        "recall": 0.9940828402366864,
+        "f1_score": 0.7368421052631579,
+        "roc_auc": 0.72095301540029
+      }
+    },
+    "uniform_tiling": {
+      "max_aggregation": {
+        "accuracy": 0.634375,
+        "precision": 0.5909090909090909,
+        "recall": 1.0,
+        "f1_score": 0.7428571428571429,
+        "roc_auc": 0.6819624593440182
+      },
+      "mean_aggregation": {
+        "accuracy": 0.6875,
+        "precision": 0.8349514563106796,
+        "recall": 0.5088757396449705,
+        "f1_score": 0.6323529411764706,
+        "roc_auc": 0.8023433520122262
+      },
+      "top3_mean_aggregation": {
+        "accuracy": 0.66875,
+        "precision": 0.6145454545454545,
+        "recall": 1.0,
+        "f1_score": 0.7612612612612613,
+        "roc_auc": 0.6875661271993416
+      }
+    }
+  },
+  "multi_modal_evidence_fusion": {
+    "validation_samples": 337,
+    "test_samples": 320,
+    "production_equivalent_metrics": {
+      "default_0.5": {
+        "threshold": 0.5,
+        "accuracy": 0.91875,
+        "precision": 0.9554140127388535,
+        "recall": 0.8875739644970414,
+        "f1_score": 0.9202453987730062,
+        "roc_auc": 0.9780163799521924
+      },
+      "balanced": {
+        "threshold": 0.5673,
+        "accuracy": 0.91875,
+        "precision": 0.9673202614379085,
+        "recall": 0.8757396449704142,
+        "f1_score": 0.9192546583850931,
+        "roc_auc": 0.9780163799521924
+      },
+      "conservative": {
+        "threshold": 0.6566,
+        "accuracy": 0.91875,
+        "precision": 0.993103448275862,
+        "recall": 0.8520710059171598,
+        "f1_score": 0.9171974522292994,
+        "roc_auc": 0.9780163799521924
+      },
+      "strict": {
+        "threshold": 0.5495,
+        "accuracy": 0.921875,
+        "precision": 0.9675324675324676,
+        "recall": 0.8816568047337278,
+        "f1_score": 0.9226006191950464,
+        "roc_auc": 0.9780163799521924
+      }
+    },
+    "oracle_assisted_metrics": {
+      "default_0.5": {
+        "threshold": 0.5,
+        "accuracy": 0.915625,
+        "precision": 0.9493670886075949,
+        "recall": 0.8875739644970414,
+        "f1_score": 0.9174311926605505,
+        "roc_auc": 0.9768015988087307
+      },
+      "balanced": {
+        "threshold": 0.5673,
+        "accuracy": 0.90625,
+        "precision": 0.954248366013072,
+        "recall": 0.863905325443787,
+        "f1_score": 0.906832298136646,
+        "roc_auc": 0.9768015988087307
+      },
+      "conservative": {
+        "threshold": 0.6566,
+        "accuracy": 0.9125,
+        "precision": 0.993006993006993,
+        "recall": 0.8402366863905325,
+        "f1_score": 0.9102564102564102,
+        "roc_auc": 0.9768015988087307
+      },
+      "strict": {
+        "threshold": 0.5495,
+        "accuracy": 0.909375,
+        "precision": 0.9545454545454546,
+        "recall": 0.8698224852071006,
+        "f1_score": 0.9102167182662538,
+        "roc_auc": 0.9768015988087307
+      }
+    },
+    "fusion_weights": {
+      "features": [
+        "p_global",
+        "p_patch",
+        "ela_mean",
+        "ela_inconsistency",
+        "noise_inconsistency",
+        "edge_variance",
+        "ocr_conf",
+        "format_anomaly"
+      ],
+      "intercept": -0.21462236326526726,
+      "coefficients": {
+        "p_global": 3.0660384031363015,
+        "p_patch": 0.22399313361151058,
+        "ela_mean": -3.9835767735390304,
+        "ela_inconsistency": -0.14430332980638527,
+        "noise_inconsistency": -0.9049979914428091,
+        "edge_variance": 1.6051803500146065,
+        "ocr_conf": -0.4226538762000176,
+        "format_anomaly": -0.42400933175810507
+      },
+      "scaler_mean": {
+        "p_global": 0.5102433234421365,
+        "p_patch": 0.6023581602373888,
+        "ela_mean": 1.4437616028842304,
+        "ela_inconsistency": 0.24402030353442675,
+        "noise_inconsistency": 1.1463917494262361,
+        "edge_variance": 853.4745580294012,
+        "ocr_conf": 0.700579821958457,
+        "format_anomaly": 0.228486646884273
+      },
+      "scaler_scale": {
+        "p_global": 0.3074361698605251,
+        "p_patch": 0.2932541618499431,
+        "ela_mean": 0.8101698629531634,
+        "ela_inconsistency": 0.2977246423133362,
+        "noise_inconsistency": 0.39089631735997105,
+        "edge_variance": 277.9694407161906,
+        "ocr_conf": 0.28857277531874204,
+        "format_anomaly": 0.41985771289789897
+      }
+    }
+  },
+  "statistical_significance": {
+    "bootstrap_iterations": 5000,
+    "sample_size": 320,
+    "baseline_confidence_intervals": {
+      "accuracy": {
+        "mean": 0.79674375,
+        "ci_95": [
+          0.7531,
+          0.8406
+        ]
+      },
+      "precision": {
+        "mean": 0.8293180193823311,
+        "ci_95": [
+          0.7687,
+          0.8861
+        ]
+      },
+      "recall": {
+        "mean": 0.7750456608976958,
+        "ci_95": [
+          0.711,
+          0.8371
+        ]
+      },
+      "f1_score": {
+        "mean": 0.8007754992658712,
+        "ci_95": [
+          0.7531,
+          0.845
+        ]
+      },
+      "roc_auc": {
+        "mean": 0.9111848436343843,
+        "ci_95": [
+          0.8809,
+          0.9387
+        ]
+      }
+    },
+    "phase6_fusion_confidence_intervals": {
+      "accuracy": {
+        "mean": 0.91896,
+        "ci_95": [
+          0.8875,
+          0.9469
+        ]
+      },
+      "precision": {
+        "mean": 0.9555393268210435,
+        "ci_95": [
+          0.9197,
+          0.9861
+        ]
+      },
+      "recall": {
+        "mean": 0.8878121413343862,
+        "ci_95": [
+          0.8365,
+          0.9321
+        ]
+      },
+      "f1_score": {
+        "mean": 0.9201987477198978,
+        "ci_95": [
+          0.8875,
+          0.9486
+        ]
+      },
+      "roc_auc": {
+        "mean": 0.9780898742467933,
+        "ci_95": [
+          0.9627,
+          0.9897
+        ]
+      }
+    },
+    "mcnemar_test": {
+      "contingency_table": {
+        "both_correct (a)": 252,
+        "baseline_correct_fusion_wrong (b)": 3,
+        "baseline_wrong_fusion_correct (c)": 42,
+        "both_wrong (d)": 23
+      },
+      "chi2_statistic": 32.08888888888889,
+      "p_value": 1.4727722527370957e-08,
+      "is_statistically_significant": true
+    },
+    "per_template_averages": {
+      "baseline_mean_acc": 0.8037301265333721,
+      "fusion_mean_acc": 0.9294777681187417,
+      "absolute_accuracy_gain": 0.12574764158536966
+    }
+  },
+  "environmental_stress_testing": {
+    "jpeg_compression": {
+      "Q_95": {
+        "accuracy": 0.75625,
+        "f1_score": 0.7868852459016393,
+        "roc_auc": 0.8303616912888436
+      },
+      "Q_85": {
+        "accuracy": 0.734375,
+        "f1_score": 0.7745358090185677,
+        "roc_auc": 0.7938398840079941
+      },
+      "Q_70": {
+        "accuracy": 0.61875,
+        "f1_score": 0.6995073891625616,
+        "roc_auc": 0.6195383831654846
+      },
+      "Q_50": {
+        "accuracy": 0.609375,
+        "f1_score": 0.7252747252747253,
+        "roc_auc": 0.6645636584505662
+      },
+      "Q_30": {
+        "accuracy": 0.546875,
+        "f1_score": 0.697286012526096,
+        "roc_auc": 0.5587209530154003
+      }
+    },
+    "gaussian_blur": {
+      "sigma_0.5": {
+        "accuracy": 0.74375,
+        "f1_score": 0.783068783068783,
+        "roc_auc": 0.808378071241036
+      },
+      "sigma_1.0": {
+        "accuracy": 0.59375,
+        "f1_score": 0.7018348623853211,
+        "roc_auc": 0.6236921509463538
+      },
+      "sigma_1.5": {
+        "accuracy": 0.56875,
+        "f1_score": 0.6946902654867256,
+        "roc_auc": 0.6117010854657314
+      },
+      "sigma_2.0": {
+        "accuracy": 0.546875,
+        "f1_score": 0.6854663774403471,
+        "roc_auc": 0.5959873035777263
+      },
+      "sigma_3.0": {
+        "accuracy": 0.553125,
+        "f1_score": 0.6950959488272921,
+        "roc_auc": 0.5920686547278499
+      }
+    },
+    "gaussian_noise": {
+      "noise_sigma_5": {
+        "accuracy": 0.81875,
+        "f1_score": 0.8273809523809523,
+        "roc_auc": 0.9152788118656687
+      },
+      "noise_sigma_10": {
+        "accuracy": 0.721875,
+        "f1_score": 0.7700258397932817,
+        "roc_auc": 0.858223284611466
+      },
+      "noise_sigma_15": {
+        "accuracy": 0.696875,
+        "f1_score": 0.7581047381546134,
+        "roc_auc": 0.7861201457737371
+      },
+      "noise_sigma_25": {
+        "accuracy": 0.65,
+        "f1_score": 0.7254901960784313,
+        "roc_auc": 0.736157372937811
+      }
+    },
+    "downscaling": {
+      "scale_0.75": {
+        "accuracy": 0.69375,
+        "f1_score": 0.7487179487179487,
+        "roc_auc": 0.7790665778439595
+      },
+      "scale_0.5": {
+        "accuracy": 0.590625,
+        "f1_score": 0.691764705882353,
+        "roc_auc": 0.645205533132176
+      },
+      "scale_0.35": {
+        "accuracy": 0.5625,
+        "f1_score": 0.6832579185520362,
+        "roc_auc": 0.6160899721775932
+      }
+    }
+  },
+  "failure_mode_analysis": {
+    "confusion_matrix": {
+      "total_samples": 320,
+      "true_positives": 150,
+      "true_negatives": 144,
+      "false_positives": 7,
+      "false_negatives": 19
+    },
+    "false_negative_rate": 0.1124,
+    "false_positive_rate": 0.0464,
+    "fn_breakdown_by_template": {
+      "alb_id": 11,
+      "esp_id": 8
+    },
+    "fn_breakdown_by_cause": {
+      "Subtle Single-Character Modification": 10,
+      "Global Model Missed (Local Patch Detected but Suppressed by Conservative Fusion)": 9
+    },
+    "fp_breakdown_by_template": {
+      "srb_passport": 4,
+      "rus_internalpassport": 3
+    },
+    "fp_breakdown_by_cause": {
+      "OCR Text Formatting / Font Irregularity on Genuine Sample": 7
+    }
+  },
+  "key_takeaways": [
+    "Data leakage audit confirmed 0 base document overlap, 0 cluster overlap, and 0 cross-split hash collisions.",
+    "Shortcut audit proved non-semantic metadata leakage (100% accuracy on file size/dimensions alone and 77.2% on CMYK mode).",
+    "Preprocessing audit demonstrated frozen model failure under letterboxing (51.56% accuracy), and 6.25% accuracy drop under standardized JPEG recompression.",
+    "Dedicated patch classifier achieves 99.38% test accuracy when guided by ground-truth crops, confirming microscopic forgery artifacts exist at native sensor scale.",
+    "Autonomous production-equivalent local inspection achieves 74.06% accuracy with canonical layout priors and 68.75% with uniform sliding tiles (mean aggregation, AUC 0.8023).",
+    "Multi-modal evidence fusion combines global CNN, local canonical patch, ELA, noise residual, and semantic OCR, achieving 91.88% accuracy (AUC 0.9780) under fully autonomous, zero-ground-truth production conditions.",
+    "Statistical validation via 5,000 bootstrap iterations yields 95% CI of [88.75%, 94.69%] for Phase 6 Production Fusion vs [75.31%, 84.06%] for Phase 2 Baseline.",
+    "McNemar's paired test proves the improvement is highly statistically significant (p = 1.47e-8, Chi2 = 32.09).",
+    "Environmental stress testing reveals progressive graceful degradation under JPEG recompression (Q=30: 54.69%), blur (sigma=3.0: 55.31%), and downscaling (scale=0.35: 56.25%)."
+  ]
+}

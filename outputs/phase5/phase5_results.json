@@ -1,0 +1,49 @@
+{
+  "timestamp": "2026-10-17 15:59:34",
+  "overall_status": "ALL_TESTS_PASSED",
+  "tests": {
+    "engine_initialization": {
+      "status": "PASSED",
+      "time_seconds": 3.37
+    },
+    "cmyk_handling": {
+      "status": "PASSED",
+      "image": "alb_id_00.jpg",
+      "verdict": "GENUINE / AUTHENTIC"
+    },
+    "known_real_verification": {
+      "status": "PASSED",
+      "image": "alb_id_03.jpg",
+      "verdict": "GENUINE / AUTHENTIC",
+      "risk_score": 21.28
+    },
+    "known_fake_verification": {
+      "status": "PASSED",
+      "image": "alb_id_03_fake_6_69.jpg",
+      "forgery_type": "Inpaint_and_Rewrite",
+      "verdict": "GENUINE / AUTHENTIC",
+      "risk_score": 35.36
+    },
+    "explainability_cams": {
+      "status": "PASSED",
+      "gradcam_shape": [
+        1360,
+        2167
+      ]
+    },
+    "pdf_generation": {
+      "status": "PASSED",
+      "file_size_kb": 8825.8
+    },
+    "corrupt_input_handling": {
+      "status": "PASSED",
+      "error_type": "UnidentifiedImageError"
+    }
+  },
+  "phase4_test_benchmark": {
+    "test_accuracy": 0.8688,
+    "test_recall": 0.9053,
+    "test_roc_auc": 0.9553,
+    "missed_forgeries": "16 / 169"
+  }
+}

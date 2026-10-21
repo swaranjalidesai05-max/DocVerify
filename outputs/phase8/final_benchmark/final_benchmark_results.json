@@ -1,0 +1,78 @@
+{
+  "evaluation_milestone": "Phase 8 Remediated Benchmark (Final Scientific Evaluation)",
+  "test_samples": 320,
+  "genuine_samples": 151,
+  "forged_samples": 169,
+  "remediation_status": {
+    "patch_model": "Remediated Phase 8 (Native Sensor-Scale Crops)",
+    "feature_consistency": "100% Identical Feature Extraction across Validation and Test",
+    "calibration": "Isotonic Regression calibrated on validation",
+    "threshold_semantics": "Monotonically ordered Conservative <= Balanced <= Strict"
+  },
+  "test_policy_metrics": {
+    "default_0.5": {
+      "threshold": 0.5,
+      "accuracy": 0.903125,
+      "precision": 0.875,
+      "recall": 0.9526627218934911,
+      "f1_score": 0.9121813031161473,
+      "roc_auc": 0.9676711469885183,
+      "brier_score": 0.06569012659597431,
+      "expected_calibration_error": 0.048440963131200124,
+      "confusion_matrix": {
+        "true_negative": 128,
+        "false_positive": 23,
+        "false_negative": 8,
+        "true_positive": 161
+      }
+    },
+    "balanced": {
+      "threshold": 0.72,
+      "accuracy": 0.9125,
+      "precision": 0.9122807017543859,
+      "recall": 0.9230769230769231,
+      "f1_score": 0.9176470588235294,
+      "roc_auc": 0.9676711469885183,
+      "brier_score": 0.06569012659597431,
+      "expected_calibration_error": 0.048440963131200124,
+      "confusion_matrix": {
+        "true_negative": 136,
+        "false_positive": 15,
+        "false_negative": 13,
+        "true_positive": 156
+      }
+    },
+    "conservative_kyc": {
+      "threshold": 0.5,
+      "accuracy": 0.903125,
+      "precision": 0.875,
+      "recall": 0.9526627218934911,
+      "f1_score": 0.9121813031161473,
+      "roc_auc": 0.9676711469885183,
+      "brier_score": 0.06569012659597431,
+      "expected_calibration_error": 0.048440963131200124,
+      "confusion_matrix": {
+        "true_negative": 128,
+        "false_positive": 23,
+        "false_negative": 8,
+        "true_positive": 161
+      }
+    },
+    "strict_antifraud": {
+      "threshold": 0.8,
+      "accuracy": 0.925,
+      "precision": 0.9801324503311258,
+      "recall": 0.8757396449704142,
+      "f1_score": 0.925,
+      "roc_auc": 0.9676711469885183,
+      "brier_score": 0.06569012659597431,
+      "expected_calibration_error": 0.048440963131200124,
+      "confusion_matrix": {
+        "true_negative": 148,
+        "false_positive": 3,
+        "false_negative": 21,
+        "true_positive": 148
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "condition": "Original Images",
+    "accuracy": 0.5,
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1_score": 0.6666666666666666
+  },
+  {
+    "condition": "JPEG Q95 Recompression",
+    "accuracy": 0.5,
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1_score": 0.6666666666666666
+  },
+  {
+    "condition": "JPEG Q80 Recompression",
+    "accuracy": 0.5,
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1_score": 0.6666666666666666
+  },
+  {
+    "condition": "JPEG Q60 Recompression",
+    "accuracy": 0.5,
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1_score": 0.6666666666666666
+  },
+  {
+    "condition": "JPEG Q50 Recompression",
+    "accuracy": 0.5,
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1_score": 0.6666666666666666
+  },
+  {
+    "condition": "Low Resolution (0.5x Scale)",
+    "accuracy": 0.5,
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1_score": 0.6666666666666666
+  },
+  {
+    "condition": "Mild Gaussian Blur (Radius 1.0)",
+    "accuracy": 0.5,
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1_score": 0.6666666666666666
+  },
+  {
+    "condition": "Brightness Shift (+20%)",
+    "accuracy": 0.725,
+    "precision": 0.6451612903225806,
+    "recall": 1.0,
+    "f1_score": 0.7843137254901961
+  },
+  {
+    "condition": "Contrast Shift (-20%)",
+    "accuracy": 0.5,
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1_score": 0.6666666666666666
+  },
+  {
+    "condition": "Metadata Stripped RGB Standardization",
+    "accuracy": 0.5,
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1_score": 0.6666666666666666
+  }
+]

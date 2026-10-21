@@ -1,0 +1,8 @@
+{
+  "threshold": 0.7,
+  "mean_iou": 0.0085,
+  "median_iou": 0.0,
+  "pct_iou_gt_zero": 32.54,
+  "pct_iou_ge_03": 0.0,
+  "pct_iou_ge_05": 0.0
+}

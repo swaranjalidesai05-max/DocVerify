@@ -1,0 +1,17 @@
+{
+  "pipeline": "Phase 8 Remediated Evidence Fusion",
+  "global_backbone": "EfficientNet-B0 (Frozen Phase 2)",
+  "patch_backbone": "EfficientNet-B0 (Remediated Phase 8)",
+  "calibration_method": "Isotonic Regression",
+  "regularization": "L2 Logistic Regression (C=0.5)",
+  "feature_columns": [
+    "p_global_fake",
+    "p_patch_fake",
+    "ela_inconsistency",
+    "noise_inconsistency",
+    "edge_variance",
+    "ocr_confidence",
+    "format_anomaly"
+  ],
+  "random_seed": 42
+}

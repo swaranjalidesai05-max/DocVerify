@@ -1,0 +1,39 @@
+{
+  "intercept": 0.8105741904468432,
+  "feature_weights": {
+    "p_global_fake": 2.9231520309645576,
+    "p_patch_fake": 1.564420336692867,
+    "ela_inconsistency": -1.6811175129196492,
+    "noise_inconsistency": -0.4144078796410759,
+    "edge_variance": 0.05424136760245494,
+    "ocr_confidence": -0.8589067031152537,
+    "format_anomaly": -0.43931077983332
+  },
+  "scaler_mean": {
+    "p_global_fake": 0.510243553370227,
+    "p_patch_fake": 0.10575476998733752,
+    "ela_inconsistency": 0.24402030353442675,
+    "noise_inconsistency": 17.160792534358425,
+    "edge_variance": 2611.672342996569,
+    "ocr_confidence": 0.700579821958457,
+    "format_anomaly": 0.228486646884273
+  },
+  "scaler_scale": {
+    "p_global_fake": 0.30743659832922254,
+    "p_patch_fake": 0.08956378938553354,
+    "ela_inconsistency": 0.2977246423133362,
+    "noise_inconsistency": 8.198866019781894,
+    "edge_variance": 976.8065604589451,
+    "ocr_confidence": 0.28857277531874204,
+    "format_anomaly": 0.41985771289789897
+  },
+  "feature_order": [
+    "p_global_fake",
+    "p_patch_fake",
+    "ela_inconsistency",
+    "noise_inconsistency",
+    "edge_variance",
+    "ocr_confidence",
+    "format_anomaly"
+  ]
+}

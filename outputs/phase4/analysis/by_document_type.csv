@@ -1,0 +1,11 @@
+template,samples,global_accuracy,fusion_accuracy
+alb_id,42,0.5476,0.7381
+aze_passport,35,0.8857,1.0
+esp_id,36,0.8333,0.9444
+est_id,29,1.0,1.0
+fin_id,35,1.0,1.0
+grc_passport,34,0.7353,0.9706
+lva_passport,21,0.7143,0.619
+rus_internalpassport,29,0.6552,0.6552
+srb_passport,34,0.7059,0.7647
+svk_id,25,0.96,0.92

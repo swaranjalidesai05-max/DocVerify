@@ -1,0 +1,15 @@
+{
+  "model": "EfficientNet-B0",
+  "checkpoint": "E:\\DocverifyAi\\models\\phase2\\best_model.pth",
+  "target_layer": "features.8",
+  "target_layer_description": "Final 1x1 Conv2dNormActivation projection prior to pooling",
+  "input_crop_size": 224,
+  "resize_size": 256,
+  "target_class": 1,
+  "target_class_name": "FAKE",
+  "methods": [
+    "Grad-CAM",
+    "HiRes-CAM"
+  ],
+  "device": "cpu"
+}

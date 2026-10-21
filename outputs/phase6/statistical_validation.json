@@ -1,0 +1,94 @@
+{
+  "bootstrap_iterations": 5000,
+  "sample_size": 320,
+  "baseline_confidence_intervals": {
+    "accuracy": {
+      "mean": 0.79674375,
+      "ci_95": [
+        0.7531,
+        0.8406
+      ]
+    },
+    "precision": {
+      "mean": 0.8293180193823311,
+      "ci_95": [
+        0.7687,
+        0.8861
+      ]
+    },
+    "recall": {
+      "mean": 0.7750456608976958,
+      "ci_95": [
+        0.711,
+        0.8371
+      ]
+    },
+    "f1_score": {
+      "mean": 0.8007754992658712,
+      "ci_95": [
+        0.7531,
+        0.845
+      ]
+    },
+    "roc_auc": {
+      "mean": 0.9111848436343843,
+      "ci_95": [
+        0.8809,
+        0.9387
+      ]
+    }
+  },
+  "phase6_fusion_confidence_intervals": {
+    "accuracy": {
+      "mean": 0.91896,
+      "ci_95": [
+        0.8875,
+        0.9469
+      ]
+    },
+    "precision": {
+      "mean": 0.9555393268210435,
+      "ci_95": [
+        0.9197,
+        0.9861
+      ]
+    },
+    "recall": {
+      "mean": 0.8878121413343862,
+      "ci_95": [
+        0.8365,
+        0.9321
+      ]
+    },
+    "f1_score": {
+      "mean": 0.9201987477198978,
+      "ci_95": [
+        0.8875,
+        0.9486
+      ]
+    },
+    "roc_auc": {
+      "mean": 0.9780898742467933,
+      "ci_95": [
+        0.9627,
+        0.9897
+      ]
+    }
+  },
+  "mcnemar_test": {
+    "contingency_table": {
+      "both_correct (a)": 252,
+      "baseline_correct_fusion_wrong (b)": 3,
+      "baseline_wrong_fusion_correct (c)": 42,
+      "both_wrong (d)": 23
+    },
+    "chi2_statistic": 32.08888888888889,
+    "p_value": 1.4727722527370957e-08,
+    "is_statistically_significant": true
+  },
+  "per_template_averages": {
+    "baseline_mean_acc": 0.8037301265333721,
+    "fusion_mean_acc": 0.9294777681187417,
+    "absolute_accuracy_gain": 0.12574764158536966
+  }
+}

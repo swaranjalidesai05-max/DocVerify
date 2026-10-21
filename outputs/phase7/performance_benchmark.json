@@ -1,0 +1,13 @@
+{
+  "hardware": "CPU execution (PyTorch 2.14.1+cpu)",
+  "model_loading_seconds": 3.537,
+  "single_component_latencies_seconds": {
+    "global_cnn_forward": 0.0678,
+    "explainability_cams": 0.3081,
+    "dedicated_patch_inspection": 0.3024,
+    "forensic_feature_extraction": 0.4627,
+    "ocr_extraction": 1.9577,
+    "evidence_fusion": 6.8e-05
+  },
+  "total_end_to_end_seconds": 3.44
+}

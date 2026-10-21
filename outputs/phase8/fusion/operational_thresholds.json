@@ -1,0 +1,14 @@
+{
+  "conservative_kyc_threshold": 0.5,
+  "balanced_threshold": 0.72,
+  "strict_antifraud_threshold": 0.8,
+  "validation_metrics": {
+    "val_samples": 337,
+    "val_accuracy_at_balanced": 0.9436201780415431,
+    "val_roc_auc": 0.990909416911712,
+    "raw_brier_score": 0.049153488733274395,
+    "calibrated_brier_score": 0.03695198965228639,
+    "raw_ece": 0.056221601220115824,
+    "calibrated_ece": 0.0
+  }
+}

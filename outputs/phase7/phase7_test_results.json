@@ -1,0 +1,48 @@
+{
+  "total_tests": 11,
+  "passed_tests": 11,
+  "failed_tests": 0,
+  "all_tests_passed": true,
+  "test_results": {
+    "Test_A_Genuine": {
+      "status": "PASS",
+      "verdict": "GENUINE / AUTHENTIC",
+      "risk": 0.04
+    },
+    "Test_B_Fake": {
+      "status": "PASS",
+      "verdict": "INCONCLUSIVE / REVIEW REQUIRED",
+      "risk": 53.6
+    },
+    "Test_C_MultiTemplate": {
+      "status": "PASS",
+      "template": "aze_passport"
+    },
+    "Test_D_CMYK": {
+      "status": "PASS"
+    },
+    "Test_E_LowQuality": {
+      "status": "PASS"
+    },
+    "Test_F_UnknownTemplate": {
+      "status": "PASS",
+      "mapped_template": "aze_passport"
+    },
+    "Test_G_Corrupted": {
+      "status": "PASS"
+    },
+    "Test_H_LargeImage": {
+      "status": "PASS"
+    },
+    "Test_I_NoOCR": {
+      "status": "PASS"
+    },
+    "Test_J_LocalFallback": {
+      "status": "PASS"
+    },
+    "Test_K_PDFReport": {
+      "status": "PASS",
+      "path": "E:\\DocverifyAi\\outputs\\phase7\\sample_reports\\TestK_Final_Handover_Sample.pdf"
+    }
+  }
+}

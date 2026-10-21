@@ -1,0 +1,15 @@
+{
+  "phase": "Phase 4 \u2014 OCR, Patch Verification & Evidence Fusion",
+  "frozen_model_checkpoint": "E:\\DocverifyAi\\models\\phase2\\best_model.pth",
+  "ocr_engine": "EasyOCR v1.7.2 (English)",
+  "patch_context_multiplier": 2.5,
+  "patch_min_dim": 128,
+  "fusion_classifier": "LogisticRegression (L2, C=1.0)",
+  "ablation_configurations": [
+    "Global_Baseline",
+    "Global_Plus_Patch",
+    "Global_Plus_OCR",
+    "Global_Plus_Patch_Plus_OCR"
+  ],
+  "device": "cpu"
+}

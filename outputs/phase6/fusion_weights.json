@@ -1,0 +1,43 @@
+{
+  "features": [
+    "p_global",
+    "p_patch",
+    "ela_mean",
+    "ela_inconsistency",
+    "noise_inconsistency",
+    "edge_variance",
+    "ocr_conf",
+    "format_anomaly"
+  ],
+  "intercept": -0.21462236326526726,
+  "coefficients": {
+    "p_global": 3.0660384031363015,
+    "p_patch": 0.22399313361151058,
+    "ela_mean": -3.9835767735390304,
+    "ela_inconsistency": -0.14430332980638527,
+    "noise_inconsistency": -0.9049979914428091,
+    "edge_variance": 1.6051803500146065,
+    "ocr_conf": -0.4226538762000176,
+    "format_anomaly": -0.42400933175810507
+  },
+  "scaler_mean": {
+    "p_global": 0.5102433234421365,
+    "p_patch": 0.6023581602373888,
+    "ela_mean": 1.4437616028842304,
+    "ela_inconsistency": 0.24402030353442675,
+    "noise_inconsistency": 1.1463917494262361,
+    "edge_variance": 853.4745580294012,
+    "ocr_conf": 0.700579821958457,
+    "format_anomaly": 0.228486646884273
+  },
+  "scaler_scale": {
+    "p_global": 0.3074361698605251,
+    "p_patch": 0.2932541618499431,
+    "ela_mean": 0.8101698629531634,
+    "ela_inconsistency": 0.2977246423133362,
+    "noise_inconsistency": 0.39089631735997105,
+    "edge_variance": 277.9694407161906,
+    "ocr_conf": 0.28857277531874204,
+    "format_anomaly": 0.41985771289789897
+  }
+}

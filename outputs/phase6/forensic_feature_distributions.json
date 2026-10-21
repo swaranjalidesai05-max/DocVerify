@@ -1,0 +1,18 @@
+{
+  "test_counts": {
+    "real": 151,
+    "fake": 169
+  },
+  "real_distributions": {
+    "ela_mean": 2.06002299556669,
+    "ela_inconsistency": 0.344676602187733,
+    "noise_inconsistency": 1.1322004358894777,
+    "edge_variance": 867.140640764047
+  },
+  "fake_distributions": {
+    "ela_mean": 1.0766429005289924,
+    "ela_inconsistency": 0.161679978846137,
+    "noise_inconsistency": 1.1613876308209798,
+    "edge_variance": 899.703151725453
+  }
+}

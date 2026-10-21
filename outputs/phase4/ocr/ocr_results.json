@@ -1,0 +1,8 @@
+{
+  "engine": "EasyOCR v1.7.2",
+  "real_test_samples_evaluated": 151,
+  "mean_cer": 0.0501,
+  "mean_wer": 0.2627,
+  "exact_match_accuracy_pct": 71.52,
+  "mean_confidence_real": 0.791
+}

@@ -1,0 +1,30 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Raw Datasets (2.5GB raw scans - excluded from git tracking)
+Dataset/
+Dataset/**
+
+# Operating System & Temporary files
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editor settings
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Sensitive Streamlit secrets
+.streamlit/secrets.toml

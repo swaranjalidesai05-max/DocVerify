@@ -1,0 +1,169 @@
+{
+  "phase": "Phase 4 \u2014 OCR, High-Resolution Patch & Evidence Fusion",
+  "timestamp": "2026-10-17 13:44:40",
+  "test_eval_count": 320,
+  "real_count": 151,
+  "fake_count": 169,
+  "ocr_evaluation": {
+    "engine": "EasyOCR v1.7.2",
+    "real_test_samples_evaluated": 151,
+    "mean_cer": 0.0501,
+    "mean_wer": 0.2627,
+    "exact_match_accuracy_pct": 71.52,
+    "mean_confidence_real": 0.791
+  },
+  "patch_verification": {
+    "total_test_fakes": 169,
+    "global_fns_count": 38,
+    "patch_recovered_fns_count": 23,
+    "fn_recovery_rate_pct": 60.53
+  },
+  "ablation_benchmark": [
+    {
+      "configuration": "Global_Baseline",
+      "accuracy": 0.7969,
+      "precision": 0.8291,
+      "recall": 0.7751,
+      "f1_score": 0.8012,
+      "roc_auc": 0.9112,
+      "brier_score": 0.1321,
+      "confusion_matrix": {
+        "TN": 124,
+        "FP": 27,
+        "FN": 38,
+        "TP": 131
+      }
+    },
+    {
+      "configuration": "Global_Plus_Patch",
+      "accuracy": 0.8094,
+      "precision": 0.7935,
+      "recall": 0.8639,
+      "f1_score": 0.8272,
+      "roc_auc": 0.9208,
+      "brier_score": 0.1187,
+      "confusion_matrix": {
+        "TN": 113,
+        "FP": 38,
+        "FN": 23,
+        "TP": 146
+      }
+    },
+    {
+      "configuration": "Global_Plus_OCR",
+      "accuracy": 0.8562,
+      "precision": 0.8398,
+      "recall": 0.8994,
+      "f1_score": 0.8686,
+      "roc_auc": 0.9551,
+      "brier_score": 0.0929,
+      "confusion_matrix": {
+        "TN": 122,
+        "FP": 29,
+        "FN": 17,
+        "TP": 152
+      }
+    },
+    {
+      "configuration": "Global_Plus_Patch_Plus_OCR",
+      "accuracy": 0.8688,
+      "precision": 0.8547,
+      "recall": 0.9053,
+      "f1_score": 0.8793,
+      "roc_auc": 0.9553,
+      "brier_score": 0.0919,
+      "confusion_matrix": {
+        "TN": 125,
+        "FP": 26,
+        "FN": 16,
+        "TP": 153
+      }
+    }
+  ],
+  "false_negative_tracking": {
+    "total_global_fns": 38,
+    "recovered_by_patch": 23,
+    "patch_recovery_rate_pct": 60.53,
+    "recovered_by_full_fusion": 22,
+    "full_fusion_fn_count": 16,
+    "fn_reduction_count": 22
+  },
+  "forgery_type_breakdown": [
+    {
+      "forgery_type": "Crop_and_Replace",
+      "samples": 24,
+      "global_recall": 0.7083,
+      "patch_recall": 0.7083,
+      "fusion_recall": 0.9167
+    },
+    {
+      "forgery_type": "Inpaint_and_Rewrite",
+      "samples": 145,
+      "global_recall": 0.7862,
+      "patch_recall": 0.7931,
+      "fusion_recall": 0.9034
+    }
+  ],
+  "document_type_breakdown": [
+    {
+      "template": "alb_id",
+      "samples": 42,
+      "global_accuracy": 0.5476,
+      "fusion_accuracy": 0.7381
+    },
+    {
+      "template": "aze_passport",
+      "samples": 35,
+      "global_accuracy": 0.8857,
+      "fusion_accuracy": 1.0
+    },
+    {
+      "template": "esp_id",
+      "samples": 36,
+      "global_accuracy": 0.8333,
+      "fusion_accuracy": 0.9444
+    },
+    {
+      "template": "est_id",
+      "samples": 29,
+      "global_accuracy": 1.0,
+      "fusion_accuracy": 1.0
+    },
+    {
+      "template": "fin_id",
+      "samples": 35,
+      "global_accuracy": 1.0,
+      "fusion_accuracy": 1.0
+    },
+    {
+      "template": "grc_passport",
+      "samples": 34,
+      "global_accuracy": 0.7353,
+      "fusion_accuracy": 0.9706
+    },
+    {
+      "template": "lva_passport",
+      "samples": 21,
+      "global_accuracy": 0.7143,
+      "fusion_accuracy": 0.619
+    },
+    {
+      "template": "rus_internalpassport",
+      "samples": 29,
+      "global_accuracy": 0.6552,
+      "fusion_accuracy": 0.6552
+    },
+    {
+      "template": "srb_passport",
+      "samples": 34,
+      "global_accuracy": 0.7059,
+      "fusion_accuracy": 0.7647
+    },
+    {
+      "template": "svk_id",
+      "samples": 25,
+      "global_accuracy": 0.96,
+      "fusion_accuracy": 0.92
+    }
+  ]
+}

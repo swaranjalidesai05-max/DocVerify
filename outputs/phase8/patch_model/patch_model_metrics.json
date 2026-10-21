@@ -1,0 +1,135 @@
+{
+  "model": "Phase 8 Remediated Dedicated Patch Classifier",
+  "checkpoint": "E:\\DocverifyAi\\models\\phase8\\dedicated_patch_model.pth",
+  "backbone": "EfficientNet-B0",
+  "training_provenance": {
+    "train_samples": 1565,
+    "val_samples": 337,
+    "test_samples": 320,
+    "epochs": 6,
+    "batch_size": 32,
+    "learning_rate": 0.0001,
+    "best_epoch": 1,
+    "random_seed": 42
+  },
+  "remediation_status": {
+    "previous_claim_status": "99.38% test accuracy from EXP-06 is INVALIDATED / SUPERSEDED DUE TO PATCH-BOX PARSING ERROR",
+    "parsing_remediation": "All 1,222 SIDTD forged bounding boxes parsed directly via src/bbox_parser.py",
+    "checkpoint_remediation": "copy.deepcopy applied to prevent parameter mutation"
+  },
+  "epoch_history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.3627606389526361,
+      "train_acc": 0.8837060702875399,
+      "val_acc": 0.9940652818991098,
+      "val_f1": 0.9947368421052631,
+      "val_auc": 0.9982069855841641
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.0676322669433519,
+      "train_acc": 0.9853035143769968,
+      "val_acc": 0.9940652818991098,
+      "val_f1": 0.9947368421052631,
+      "val_auc": 0.9991393530803988
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.029348252433985946,
+      "train_acc": 0.9968051118210862,
+      "val_acc": 0.9940652818991098,
+      "val_f1": 0.9947368421052631,
+      "val_auc": 0.999748977981783
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.015822579090992293,
+      "train_acc": 0.997444089456869,
+      "val_acc": 0.9940652818991098,
+      "val_f1": 0.9947368421052631,
+      "val_auc": 0.9994262353869325
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.013068098376710384,
+      "train_acc": 0.9987220447284345,
+      "val_acc": 0.9940652818991098,
+      "val_f1": 0.9947368421052631,
+      "val_auc": 0.9999641397116833
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.009930919350002902,
+      "train_acc": 0.9993610223642172,
+      "val_acc": 0.9940652818991098,
+      "val_f1": 0.9947368421052631,
+      "val_auc": 1.0
+    }
+  ],
+  "test_metrics": {
+    "accuracy": 0.984375,
+    "precision": 1.0,
+    "recall": 0.9704142011834319,
+    "f1_score": 0.984984984984985,
+    "roc_auc": 0.9966691484776048,
+    "confusion_matrix": {
+      "true_negative": 151,
+      "false_positive": 0,
+      "false_negative": 5,
+      "true_positive": 164
+    }
+  },
+  "per_template_accuracy": {
+    "alb_id": {
+      "samples": 42,
+      "accuracy": 0.9047619047619048
+    },
+    "aze_passport": {
+      "samples": 35,
+      "accuracy": 0.9714285714285714
+    },
+    "esp_id": {
+      "samples": 36,
+      "accuracy": 1.0
+    },
+    "est_id": {
+      "samples": 29,
+      "accuracy": 1.0
+    },
+    "fin_id": {
+      "samples": 35,
+      "accuracy": 1.0
+    },
+    "grc_passport": {
+      "samples": 34,
+      "accuracy": 1.0
+    },
+    "lva_passport": {
+      "samples": 21,
+      "accuracy": 1.0
+    },
+    "rus_internalpassport": {
+      "samples": 29,
+      "accuracy": 1.0
+    },
+    "srb_passport": {
+      "samples": 34,
+      "accuracy": 1.0
+    },
+    "svk_id": {
+      "samples": 25,
+      "accuracy": 1.0
+    }
+  },
+  "per_forgery_detection_rate": {
+    "Crop_and_Replace": {
+      "samples": 24,
+      "detection_rate": 0.8333333333333334
+    },
+    "Inpaint_and_Rewrite": {
+      "samples": 145,
+      "detection_rate": 0.993103448275862
+    }
+  }
+}

@@ -1,0 +1,11 @@
+template,samples,pointing_game_accuracy,mean_iou,median_iou,classification_accuracy
+alb_id,25,0.0,0.0,0.0,36.0
+aze_passport,18,0.0,0.0137,0.0043,77.78
+esp_id,21,0.0,0.0036,0.0,71.43
+est_id,15,6.67,0.0111,0.0,100.0
+fin_id,20,0.0,0.0079,0.0,100.0
+grc_passport,19,0.0,0.0146,0.0,52.63
+lva_passport,7,0.0,0.0021,0.0,85.71
+rus_internalpassport,14,0.0,0.0217,0.007,85.71
+srb_passport,19,0.0,0.0032,0.0,100.0
+svk_id,11,0.0,0.0124,0.0,100.0

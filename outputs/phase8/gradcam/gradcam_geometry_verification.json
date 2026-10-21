@@ -1,0 +1,23 @@
+{
+  "test": "Grad-CAM Geometric Inversion Verification",
+  "canvas_size": [
+    2167,
+    1360
+  ],
+  "crop_bounds_in_original_frame": [
+    489,
+    85,
+    1679,
+    1275
+  ],
+  "peak_location": [
+    1083,
+    679
+  ],
+  "center_error_pixels": {
+    "x_error": 1,
+    "y_error": 1
+  },
+  "boundary_containment": "STRICT_ZERO_OUTSIDE_ACTIVATION",
+  "status": "PASS"
+}

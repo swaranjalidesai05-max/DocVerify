@@ -1,0 +1,55 @@
+{
+  "bootstrap_confidence_intervals": {
+    "iterations": 5000,
+    "sample_size": 320,
+    "accuracy": {
+      "mean": 0.912225,
+      "ci_95": [
+        0.878125,
+        0.94375
+      ]
+    },
+    "precision": {
+      "mean": 0.91252407609204,
+      "ci_95": [
+        0.8682634730538922,
+        0.9540229885057471
+      ]
+    },
+    "recall": {
+      "mean": 0.9224260429082595,
+      "ci_95": [
+        0.88,
+        0.9597701149425287
+      ]
+    },
+    "f1_score": {
+      "mean": 0.9172168812887991,
+      "ci_95": [
+        0.8846122112211221,
+        0.9467463908640379
+      ]
+    },
+    "roc_auc": {
+      "mean": 0.9674892134889236,
+      "ci_95": [
+        0.9479360119047618,
+        0.9843746514841848
+      ]
+    }
+  },
+  "mcnemar_paired_test": {
+    "comparison": "Phase 8 Remediated Model vs Phase 2 Baseline on SAME N=320 Frozen Test Samples",
+    "null_hypothesis": "The two models have identical marginal error rates (H0: p(P2 error, P8 correct) = p(P8 error, P2 correct))",
+    "alternative_hypothesis": "Phase 8 Remediated model significantly outperforms Phase 2 baseline",
+    "contingency_table": {
+      "both_correct": 243,
+      "p2_correct_p8_wrong": 12,
+      "p8_correct_p2_wrong": 49,
+      "both_wrong": 16
+    },
+    "mcnemar_chi2_statistic": 21.24590163934426,
+    "p_value": 4.039732062360006e-06,
+    "statistically_significant": true
+  }
+}

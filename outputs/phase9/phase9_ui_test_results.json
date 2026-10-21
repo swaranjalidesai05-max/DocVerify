@@ -1,0 +1,15 @@
+{
+  "state_1_initial": "PASS",
+  "state_2_upload_mode": "PASS",
+  "state_3_benchmark_mode": "PASS",
+  "state_4_preview_loaded": "PASS",
+  "state_5_in_flight_analysis": "PASS",
+  "state_6_high_risk_verdict": "PASS",
+  "state_7_low_risk_verdict": "PASS",
+  "state_8_medium_risk_verdict": "PASS",
+  "state_9_visual_explainability": "PASS",
+  "state_10_field_level_inspection": "PASS",
+  "state_11_ocr_typography": "PASS",
+  "state_12_evidence_fusion": "PASS",
+  "state_13_pdf_report_download": "PASS"
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "condition": "Original",
+    "real_mean": 2.06002299556669,
+    "real_std": 0.8708272613379734,
+    "fake_mean": 1.0766429005289924,
+    "fake_std": 0.3355726453992318,
+    "mean_delta": 0.9833800950376976,
+    "cohens_d": 1.5224733717386976,
+    "shortcut_signature": "STRONG_DATASET_SHORTCUT"
+  },
+  {
+    "condition": "Q_95",
+    "real_mean": 1.6382190510137191,
+    "real_std": 0.5206436848578231,
+    "fake_mean": 1.0030663069888686,
+    "fake_std": 0.2693401422921152,
+    "mean_delta": 0.6351527440248506,
+    "cohens_d": 1.5580375536758113,
+    "shortcut_signature": "HARMONIZED"
+  },
+  {
+    "condition": "Q_90",
+    "real_mean": 0.3446013530506598,
+    "real_std": 0.3720383538036459,
+    "fake_mean": 0.321027934705541,
+    "fake_std": 0.2891938499148773,
+    "mean_delta": 0.023573418345118835,
+    "cohens_d": 0.07124758511583876,
+    "shortcut_signature": "HARMONIZED"
+  },
+  {
+    "condition": "Q_80",
+    "real_mean": 0.639609464549071,
+    "real_std": 0.3476443580651369,
+    "fake_mean": 0.5490317629462869,
+    "fake_std": 0.2601799240637607,
+    "mean_delta": 0.09057770160278411,
+    "cohens_d": 0.2973831707893008,
+    "shortcut_signature": "HARMONIZED"
+  },
+  {
+    "condition": "Q_70",
+    "real_mean": 0.7341977018394218,
+    "real_std": 0.33127308658246574,
+    "fake_mean": 0.8014032736685149,
+    "fake_std": 0.30706243477594414,
+    "mean_delta": -0.06720557182909315,
+    "cohens_d": -0.21086628586687917,
+    "shortcut_signature": "HARMONIZED"
+  },
+  {
+    "condition": "Q_60",
+    "real_mean": 0.681670165811943,
+    "real_std": 0.32576081646702654,
+    "fake_mean": 0.8549938411754969,
+    "fake_std": 0.31275478958590075,
+    "mean_delta": -0.17332367536355398,
+    "cohens_d": -0.5434097068782066,
+    "shortcut_signature": "HARMONIZED"
+  },
+  {
+    "condition": "Q_50",
+    "real_mean": 0.6581814154883884,
+    "real_std": 0.32418056711443055,
+    "fake_mean": 0.6665923963989732,
+    "fake_std": 0.21726115209108884,
+    "mean_delta": -0.008410980910584787,
+    "cohens_d": -0.030813524495713427,
+    "shortcut_signature": "HARMONIZED"
+  }
+]

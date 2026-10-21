@@ -1,0 +1,26 @@
+{
+  "confusion_matrix": {
+    "total_samples": 320,
+    "true_positives": 150,
+    "true_negatives": 144,
+    "false_positives": 7,
+    "false_negatives": 19
+  },
+  "false_negative_rate": 0.1124,
+  "false_positive_rate": 0.0464,
+  "fn_breakdown_by_template": {
+    "alb_id": 11,
+    "esp_id": 8
+  },
+  "fn_breakdown_by_cause": {
+    "Subtle Single-Character Modification": 10,
+    "Global Model Missed (Local Patch Detected but Suppressed by Conservative Fusion)": 9
+  },
+  "fp_breakdown_by_template": {
+    "srb_passport": 4,
+    "rus_internalpassport": 3
+  },
+  "fp_breakdown_by_cause": {
+    "OCR Text Formatting / Font Irregularity on Genuine Sample": 7
+  }
+}

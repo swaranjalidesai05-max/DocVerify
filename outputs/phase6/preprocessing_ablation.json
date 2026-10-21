@@ -1,0 +1,62 @@
+{
+  "A_centercrop_224_baseline": {
+    "description": "Historical Phase 2: Resize(256) -> CenterCrop(224)",
+    "accuracy": 0.796875,
+    "precision": 0.8291139240506329,
+    "recall": 0.7751479289940828,
+    "f1_score": 0.8012232415902141,
+    "roc_auc": 0.9112426035502958,
+    "brier_score": 0.1321434936880872,
+    "confusion_matrix": {
+      "TN": 124,
+      "FP": 27,
+      "FN": 38,
+      "TP": 131
+    }
+  },
+  "B_letterbox_224": {
+    "description": "Geometry-Preserving: Aspect-Ratio Letterbox Padding to 224x224",
+    "accuracy": 0.515625,
+    "precision": 0.553030303030303,
+    "recall": 0.4319526627218935,
+    "f1_score": 0.4850498338870432,
+    "roc_auc": 0.5254124377914495,
+    "brier_score": 0.2797100402493529,
+    "confusion_matrix": {
+      "TN": 92,
+      "FP": 59,
+      "FN": 96,
+      "TP": 73
+    }
+  },
+  "C_letterbox_384": {
+    "description": "High-Resolution Letterbox: Aspect-Ratio Letterbox Padding to 384x384",
+    "accuracy": 0.60625,
+    "precision": 0.7590361445783133,
+    "recall": 0.3727810650887574,
+    "f1_score": 0.5,
+    "roc_auc": 0.65206316861946,
+    "brier_score": 0.24067738867827448,
+    "confusion_matrix": {
+      "TN": 131,
+      "FP": 20,
+      "FN": 106,
+      "TP": 63
+    }
+  },
+  "D_standardized_jpeg_recompressed_224": {
+    "description": "Standardized Compression: Uniform JPEG Recompression (Q=85) + CenterCrop(224)",
+    "accuracy": 0.734375,
+    "precision": 0.7019230769230769,
+    "recall": 0.863905325443787,
+    "f1_score": 0.7745358090185677,
+    "roc_auc": 0.7938398840079941,
+    "brier_score": 0.20008829080809187,
+    "confusion_matrix": {
+      "TN": 89,
+      "FP": 62,
+      "FN": 23,
+      "TP": 146
+    }
+  }
+}

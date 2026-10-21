@@ -1,0 +1,174 @@
+{
+  "operational_threshold": 0.72,
+  "total_test_samples": 320,
+  "false_positives": {
+    "count": 15,
+    "rate": 0.09933774834437085,
+    "by_template": {
+      "alb_id": 5,
+      "rus_internalpassport": 5,
+      "srb_passport": 5
+    },
+    "sample_records": [
+      {
+        "image_filename": "alb_id_11.jpg",
+        "template": "alb_id",
+        "p_global_fake": 0.5476552248001099,
+        "p_patch_fake": 0.1086866286184106,
+        "calibrated_fusion_prob": 1.0
+      },
+      {
+        "image_filename": "alb_id_14.jpg",
+        "template": "alb_id",
+        "p_global_fake": 0.4604791402816772,
+        "p_patch_fake": 0.1068028121122292,
+        "calibrated_fusion_prob": 0.72
+      },
+      {
+        "image_filename": "alb_id_74.jpg",
+        "template": "alb_id",
+        "p_global_fake": 0.4483340978622436,
+        "p_patch_fake": 0.0968680195510387,
+        "calibrated_fusion_prob": 0.72
+      },
+      {
+        "image_filename": "alb_id_96.jpg",
+        "template": "alb_id",
+        "p_global_fake": 0.5159865617752075,
+        "p_patch_fake": 0.0905033126473426,
+        "calibrated_fusion_prob": 0.72
+      },
+      {
+        "image_filename": "alb_id_98.jpg",
+        "template": "alb_id",
+        "p_global_fake": 0.4183187186717987,
+        "p_patch_fake": 0.0863791621689285,
+        "calibrated_fusion_prob": 0.72
+      },
+      {
+        "image_filename": "rus_internalpassport_03.jpg",
+        "template": "rus_internalpassport",
+        "p_global_fake": 0.5410659909248352,
+        "p_patch_fake": 0.0273413599934428,
+        "calibrated_fusion_prob": 0.72
+      },
+      {
+        "image_filename": "rus_internalpassport_16.jpg",
+        "template": "rus_internalpassport",
+        "p_global_fake": 0.6072643995285034,
+        "p_patch_fake": 0.0234903926029801,
+        "calibrated_fusion_prob": 0.72
+      },
+      {
+        "image_filename": "rus_internalpassport_37.jpg",
+        "template": "rus_internalpassport",
+        "p_global_fake": 0.687004804611206,
+        "p_patch_fake": 0.0513401350472122,
+        "calibrated_fusion_prob": 1.0
+      },
+      {
+        "image_filename": "rus_internalpassport_61.jpg",
+        "template": "rus_internalpassport",
+        "p_global_fake": 0.53586345911026,
+        "p_patch_fake": 0.0114386837230995,
+        "calibrated_fusion_prob": 0.72
+      },
+      {
+        "image_filename": "rus_internalpassport_70.jpg",
+        "template": "rus_internalpassport",
+        "p_global_fake": 0.5247474312782288,
+        "p_patch_fake": 0.0293569321511313,
+        "calibrated_fusion_prob": 0.72
+      }
+    ],
+    "root_cause_analysis": "Dense background guilloche noise and atypical scan contrast triggered elevated global CNN suspicion."
+  },
+  "false_negatives": {
+    "count": 13,
+    "rate": 0.07692307692307693,
+    "by_template": {
+      "srb_passport": 5,
+      "lva_passport": 4,
+      "esp_id": 2,
+      "alb_id": 1,
+      "aze_passport": 1
+    },
+    "by_forgery_type": {
+      "Inpaint_and_Rewrite": 12,
+      "Crop_and_Replace": 1
+    },
+    "sample_records": [
+      {
+        "image_filename": "alb_id_98_fake_6_104.jpg",
+        "template": "alb_id",
+        "p_global_fake": 0.3974703550338745,
+        "p_patch_fake": 0.2113042356712477,
+        "calibrated_fusion_prob": 0.0
+      },
+      {
+        "image_filename": "aze_passport_69_fake_3_18.jpg",
+        "template": "aze_passport",
+        "p_global_fake": 0.5004660487174988,
+        "p_patch_fake": 0.0266693026448289,
+        "calibrated_fusion_prob": 0.5409335896545654
+      },
+      {
+        "image_filename": "esp_id_74_fake_2_99.jpg",
+        "template": "esp_id",
+        "p_global_fake": 0.4412284195423126,
+        "p_patch_fake": 0.1852705556899309,
+        "calibrated_fusion_prob": 0.0769230769230769
+      },
+      {
+        "image_filename": "esp_id_96_fake_2_40.jpg",
+        "template": "esp_id",
+        "p_global_fake": 0.3025607168674469,
+        "p_patch_fake": 0.1614142548292875,
+        "calibrated_fusion_prob": 0.0769230769230769
+      },
+      {
+        "image_filename": "lva_passport_09_fake_0_66.jpg",
+        "template": "lva_passport",
+        "p_global_fake": 0.599441647529602,
+        "p_patch_fake": 0.036675508506596,
+        "calibrated_fusion_prob": 0.5
+      },
+      {
+        "image_filename": "lva_passport_09_fake_0_94.jpg",
+        "template": "lva_passport",
+        "p_global_fake": 0.595478355884552,
+        "p_patch_fake": 0.036675508506596,
+        "calibrated_fusion_prob": 0.5
+      },
+      {
+        "image_filename": "lva_passport_32_fake_0_71.jpg",
+        "template": "lva_passport",
+        "p_global_fake": 0.467436820268631,
+        "p_patch_fake": 0.0357147138565778,
+        "calibrated_fusion_prob": 0.0769230769230769
+      },
+      {
+        "image_filename": "lva_passport_64_fake_0_33.jpg",
+        "template": "lva_passport",
+        "p_global_fake": 0.5072462558746338,
+        "p_patch_fake": 0.0386992402374744,
+        "calibrated_fusion_prob": 0.0769230769230769
+      },
+      {
+        "image_filename": "srb_passport_09_fake_5_112.jpg",
+        "template": "srb_passport",
+        "p_global_fake": 0.559127688407898,
+        "p_patch_fake": 0.0261067306622862,
+        "calibrated_fusion_prob": 0.3985025650590623
+      },
+      {
+        "image_filename": "srb_passport_09_fake_5_59.jpg",
+        "template": "srb_passport",
+        "p_global_fake": 0.5683552622795105,
+        "p_patch_fake": 0.0247823363170027,
+        "calibrated_fusion_prob": 0.0024305168321518
+      }
+    ],
+    "root_cause_analysis": "Subtle single-character inpainting and near-perfect font matching generated faint visual cues below the balanced operational threshold."
+  }
+}

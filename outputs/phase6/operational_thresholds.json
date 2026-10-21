@@ -1,0 +1,9 @@
+{
+  "balanced_threshold": 0.5673424289977574,
+  "conservative_kyc_threshold": 0.6565934673791048,
+  "low_false_alarm_threshold": 0.549537839458661,
+  "validation_metrics": {
+    "val_accuracy": 0.9762611275964391,
+    "val_auc": 0.9985297281790145
+  }
+}

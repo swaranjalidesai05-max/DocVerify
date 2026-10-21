@@ -1,0 +1,12 @@
+{
+  "model_architecture": "EfficientNet-B0 (Dedicated Patch Classifier)",
+  "checkpoint": "E:\\DocverifyAi\\models\\phase6\\dedicated_patch_model.pth",
+  "validation_f1": 1.0,
+  "test_metrics": {
+    "accuracy": 0.99375,
+    "precision": 1.0,
+    "recall": 0.9881656804733728,
+    "f1_score": 0.9940476190476191,
+    "roc_auc": 0.9999608135115012
+  }
+}
