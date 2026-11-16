@@ -1,40 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
   <defs>
     <linearGradient id="bgBase" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#040C1E"/>
-      <stop offset="45%" stop-color="#06142F"/>
-      <stop offset="100%" stop-color="#0A1E48"/>
+      <stop offset="0%" stop-color="#061735"/>
+      <stop offset="50%" stop-color="#071B3B"/>
+      <stop offset="100%" stop-color="#0B2855"/>
     </linearGradient>
 
-    <radialGradient id="cyanGlow" cx="45%" cy="35%" r="50%">
-      <stop offset="0%" stop-color="#0066FF" stop-opacity="0.22"/>
-      <stop offset="60%" stop-color="#0044BB" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#040C1E" stop-opacity="0"/>
+    <radialGradient id="cyanGlow" cx="45%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#00C8FF" stop-opacity="0.16"/>
+      <stop offset="60%" stop-color="#087BFF" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#061735" stop-opacity="0"/>
     </radialGradient>
 
-    <radialGradient id="laserGlow" cx="46%" cy="52%" r="28%">
-      <stop offset="0%" stop-color="#00D2FF" stop-opacity="0.18"/>
-      <stop offset="50%" stop-color="#0066FF" stop-opacity="0.06"/>
-      <stop offset="100%" stop-color="#040C1E" stop-opacity="0"/>
+    <radialGradient id="laserGlow" cx="48%" cy="50%" r="30%">
+      <stop offset="0%" stop-color="#00C8FF" stop-opacity="0.22"/>
+      <stop offset="50%" stop-color="#087BFF" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#061735" stop-opacity="0"/>
     </radialGradient>
 
     <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="80%">
-      <stop offset="0%" stop-color="#083074" stop-opacity="0.85"/>
-      <stop offset="50%" stop-color="#0C4AA8" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#04122C" stop-opacity="0.2"/>
+      <stop offset="0%" stop-color="#0B2855" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#087BFF" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#061735" stop-opacity="0.2"/>
     </linearGradient>
 
     <linearGradient id="waveGrad2" x1="0%" y1="20%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0D4FA8" stop-opacity="0.9"/>
-      <stop offset="40%" stop-color="#1467D2" stop-opacity="0.7"/>
-      <stop offset="85%" stop-color="#082A62" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#030A18" stop-opacity="0.9"/>
+      <stop offset="0%" stop-color="#087BFF" stop-opacity="0.8"/>
+      <stop offset="45%" stop-color="#00C8FF" stop-opacity="0.6"/>
+      <stop offset="85%" stop-color="#0B2855" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#040F24" stop-opacity="0.9"/>
     </linearGradient>
 
     <linearGradient id="waveGrad3" x1="10%" y1="0%" x2="90%" y2="100%">
-      <stop offset="0%" stop-color="#051B3E" stop-opacity="0.95"/>
-      <stop offset="55%" stop-color="#0A367E" stop-opacity="0.85"/>
-      <stop offset="100%" stop-color="#020814" stop-opacity="0.95"/>
+      <stop offset="0%" stop-color="#061735" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#0B2855" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#030B1C" stop-opacity="0.95"/>
     </linearGradient>
 
     <filter id="softBlur" x="-10%" y="-10%" width="120%" height="120%">

@@ -64,29 +64,29 @@ def get_enterprise_css(theme: str = "dark") -> str:
         shadow_card = "0 20px 40px rgba(6, 20, 47, 0.10)"
         nav_bg = "rgba(255, 255, 255, 0.95)"
     else:
-        # Dark Theme Palette (Deep Navy + Electric Blue + White)
-        bg = "#040C1E"
-        bg_alt = "#0A1F44"
-        surface = "#0A1F44"
-        surface_alt = "#0D2552"
-        surface_raised = "#152B50"
-        surface_hero = "#071838"
+        # Dark Theme Palette (Deep Navy + Electric Blue + Cyan + White)
+        bg = "#061735"
+        bg_alt = "#071B3B"
+        surface = "#071B3B"
+        surface_alt = "#0B2855"
+        surface_raised = "#0B2855"
+        surface_hero = "#061735"
         card_white = "#FFFFFF"
-        card_white_text = "#06142F"
-        card_white_border = "rgba(255, 255, 255, 0.18)"
-        border = "#152B50"
-        border_focus = "#075BFF"
-        border_strong = "#213C6E"
+        card_white_text = "#10254A"
+        card_white_border = "rgba(255, 255, 255, 0.95)"
+        border = "#0B2855"
+        border_focus = "#087BFF"
+        border_strong = "rgba(8, 123, 255, 0.35)"
         text_main = "#FFFFFF"
-        text_secondary = "#A9B9D3"
-        text_muted = "#7E92B5"
-        text_subtle = "#506587"
-        accent = "#075BFF"
-        accent_bright = "#2583FF"
-        accent_hover = "#4094FF"
-        accent_light = "#0D275A"
-        accent_border = "rgba(7, 91, 255, 0.35)"
-        slate_blue = "#152B50"
+        text_secondary = "#A9BEDD"
+        text_muted = "#7E96BF"
+        text_subtle = "#526B94"
+        accent = "#087BFF"
+        accent_bright = "#00C8FF"
+        accent_hover = "#0062D6"
+        accent_light = "#0D2C5E"
+        accent_border = "rgba(8, 123, 255, 0.4)"
+        slate_blue = "#0B2855"
         success = "#10B981"
         success_bg = "rgba(16, 185, 129, 0.12)"
         success_border = "rgba(16, 185, 129, 0.35)"
@@ -100,7 +100,7 @@ def get_enterprise_css(theme: str = "dark") -> str:
         shadow_md = "0 8px 24px rgba(0, 0, 0, 0.45)"
         shadow_lg = "0 16px 48px rgba(0, 0, 0, 0.60)"
         shadow_card = "0 24px 48px rgba(0, 0, 0, 0.50)"
-        nav_bg = "rgba(4, 12, 30, 0.85)"
+        nav_bg = "rgba(6, 23, 53, 0.95)"
 
     # Load dark navy abstract background SVG for standalone CSS injection
     bg_data_uri = ""
@@ -902,15 +902,15 @@ def get_enterprise_css(theme: str = "dark") -> str:
         gap: 12px;
     }}
     .dv-ref-logo {{
-        width: 38px;
-        height: 38px;
+        width: 36px;
+        height: 36px;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
     }}
     .dv-ref-title {{
-        font-size: 1.4rem;
+        font-size: 1.45rem;
         font-weight: 800;
         letter-spacing: -0.02em;
         color: #FFFFFF;
@@ -918,17 +918,20 @@ def get_enterprise_css(theme: str = "dark") -> str:
         align-items: center;
     }}
     .dv-ref-title .dv-ai-text {{
-        color: #1E6BFF;
+        color: #087BFF;
         font-weight: 800;
-        margin-left: 3px;
+        margin-left: 4px;
+    }}
+    .dv-ref-divider {{
+        color: rgba(255, 255, 255, 0.25);
+        margin: 0 10px;
+        font-size: 1rem;
+        font-weight: 300;
     }}
     .dv-ref-sub {{
         font-size: 0.85rem;
-        color: #8E9DB7;
+        color: #A9BEDD;
         font-weight: 500;
-        margin-left: 14px;
-        padding-left: 14px;
-        border-left: 1px solid rgba(255, 255, 255, 0.14);
         white-space: nowrap;
     }}
 
@@ -937,81 +940,103 @@ def get_enterprise_css(theme: str = "dark") -> str:
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 6px 0;
+        padding: 4px 0;
     }}
     .dv-ref-hero-pill {{
         display: inline-flex;
         align-items: center;
         gap: 8px;
         background: rgba(14, 35, 74, 0.85);
-        border: 1px solid rgba(26, 61, 124, 0.9);
+        border: 1px solid rgba(8, 123, 255, 0.35);
         padding: 6px 16px;
         border-radius: 24px;
         font-size: 0.82rem;
         font-weight: 600;
         color: #6BB5FF;
-        margin-bottom: 20px;
+        margin-bottom: 18px;
         width: fit-content;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     }}
     .dv-ref-hero-pill-sparkle {{
-        color: #00D2FF;
+        color: #00C8FF;
         font-size: 0.95rem;
     }}
     .dv-ref-hero-h1 {{
-        font-size: 3.4rem !important;
+        font-size: 2.85rem !important;
         font-weight: 800 !important;
-        letter-spacing: -0.04em !important;
-        line-height: 1.1 !important;
+        letter-spacing: -0.035em !important;
+        line-height: 1.15 !important;
         color: #FFFFFF !important;
         margin-bottom: 16px !important;
     }}
-    .dv-ref-hero-h1 .dv-trust {{
-        color: #1665FF !important;
+    .dv-cyan-highlight {{
+        color: #00C8FF !important;
+        background: linear-gradient(135deg, #087BFF 0%, #00C8FF 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }}
     .dv-ref-hero-sub {{
-        font-size: 1.05rem;
+        font-size: 0.96rem;
         line-height: 1.55;
-        color: #8E9DB7;
+        color: #A9BEDD;
         max-width: 440px;
-        margin-bottom: 26px;
+        margin-bottom: 24px;
         font-weight: 400;
     }}
     .dv-ref-feat-list {{
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 14px;
     }}
     .dv-ref-feat-row {{
         display: flex;
         align-items: center;
-        gap: 14px;
-        font-size: 1.02rem;
+        gap: 12px;
+        font-size: 0.95rem;
         font-weight: 700;
         color: #FFFFFF;
     }}
     .dv-ref-feat-icon-circ {{
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
         border-radius: 50%;
-        background: rgba(18, 43, 92, 0.85);
-        border: 1.5px solid #1E6BFF;
+        background: rgba(11, 40, 85, 0.9);
+        border: 1.5px solid #087BFF;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #2583FF;
+        color: #00C8FF;
         flex-shrink: 0;
-        box-shadow: 0 0 12px rgba(30, 107, 255, 0.3);
+        box-shadow: 0 0 10px rgba(8, 123, 255, 0.35);
+    }}
+
+    /* Hero Center Illustration */
+    .dv-hero-illustration-wrap {{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        padding: 0 4px;
+    }}
+    .dv-hero-illustration-img {{
+        width: 100%;
+        max-width: 460px;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        filter: drop-shadow(0 0 35px rgba(0, 200, 255, 0.28)) drop-shadow(0 15px 35px rgba(0, 0, 0, 0.5));
+        border-radius: 16px;
     }}
 
     /* Reference White Upload Card */
     .dv-ref-upload-card {{
         background: #FFFFFF !important;
-        border-radius: 24px !important;
+        border-radius: 22px !important;
         padding: 28px 24px 22px 24px !important;
         box-shadow: 0 24px 60px rgba(0, 10, 30, 0.45) !important;
         border: 1px solid rgba(255, 255, 255, 0.95) !important;
-        color: #06142F !important;
+        color: #10254A !important;
     }}
     .dv-ref-card-header {{
         text-align: center;
@@ -1024,12 +1049,12 @@ def get_enterprise_css(theme: str = "dark") -> str:
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #0066FF;
+        color: #087BFF;
     }}
     .dv-ref-card-title {{
         font-size: 1.45rem;
         font-weight: 800;
-        color: #06142F;
+        color: #10254A;
         letter-spacing: -0.02em;
         margin-bottom: 4px;
         line-height: 1.2;
@@ -1056,17 +1081,17 @@ def get_enterprise_css(theme: str = "dark") -> str:
     }}
     .dv-ref-upload-card [data-testid="stFileUploader"] [data-testid="stBaseButton-secondary"],
     .dv-ref-upload-card [data-testid="stFileUploader"] button {{
-        background: #0066FF !important;
+        background: #087BFF !important;
         color: #FFFFFF !important;
         border-radius: 8px !important;
         font-weight: 700 !important;
         font-size: 0.88rem !important;
-        padding: 8px 20px !important;
+        padding: 8px 22px !important;
         border: none !important;
-        box-shadow: 0 4px 12px rgba(0, 102, 255, 0.35) !important;
+        box-shadow: 0 4px 12px rgba(8, 123, 255, 0.35) !important;
     }}
     .dv-ref-upload-card [data-testid="stFileUploader"] button:hover {{
-        background: #0052CC !important;
+        background: #0062D6 !important;
     }}
     .dv-ref-upload-card [data-testid="stFileUploader"] span,
     .dv-ref-upload-card [data-testid="stFileUploader"] p,
@@ -1083,127 +1108,189 @@ def get_enterprise_css(theme: str = "dark") -> str:
         letter-spacing: 0.01em;
     }}
 
-    /* Reference Supported Documents Bar */
-    .dv-ref-supported-bar {{
-        background: #E8F0FA;
-        border: 1px solid #D2E0F2;
+    /* Reference Supported Documents Section (10 Countries) */
+    .dv-ref-sup-bar-10 {{
+        background: rgba(11, 40, 85, 0.55);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(8, 123, 255, 0.28);
         border-radius: 18px;
-        padding: 14px 28px;
+        padding: 14px 20px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-top: 36px;
-        margin-bottom: 36px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        margin-top: 32px;
+        margin-bottom: 32px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        gap: 8px;
+        overflow-x: auto;
     }}
-    .dv-ref-sup-title {{
-        font-size: 1rem;
-        font-weight: 800;
-        line-height: 1.15;
-        color: #06142F;
-        padding-right: 24px;
-        border-right: 1px solid #CBDCEE;
-    }}
-    .dv-ref-sup-item {{
+    .dv-sup-title-box {{
         display: flex;
         align-items: center;
-        gap: 10px;
-        font-size: 0.95rem;
-        font-weight: 700;
-        color: #06142F;
-    }}
-    .dv-ref-sup-icon {{
-        width: 24px;
-        height: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        gap: 12px;
+        padding-right: 16px;
+        border-right: 1px solid rgba(8, 123, 255, 0.25);
         flex-shrink: 0;
     }}
-
-    /* Reference Bottom 3-Column Value Props Bar */
-    .dv-ref-props-bar {{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 32px;
-        margin-bottom: 40px;
-        padding: 0 12px;
-    }}
-    .dv-ref-prop-col {{
-        display: flex;
-        align-items: flex-start;
-        gap: 14px;
-    }}
-    .dv-ref-prop-icon {{
-        width: 36px;
-        height: 36px;
+    .dv-sup-globe-badge {{
+        width: 38px;
+        height: 38px;
         border-radius: 50%;
-        border: 1.5px solid #1E6BFF;
+        background: rgba(8, 123, 255, 0.18);
+        border: 1.5px solid #087BFF;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #2583FF;
+        color: #00C8FF;
         flex-shrink: 0;
+    }}
+    .dv-sup-main-title {{
+        font-size: 0.98rem;
+        font-weight: 800;
+        color: #FFFFFF;
+        line-height: 1.15;
+    }}
+    .dv-sup-sub-title {{
+        font-size: 0.74rem;
+        color: #A9BEDD;
         margin-top: 2px;
     }}
-    .dv-ref-prop-title {{
+    .dv-sup-card-item {{
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        padding: 0 10px;
+        border-right: 1px solid rgba(8, 123, 255, 0.15);
+        flex-shrink: 0;
+    }}
+    .dv-sup-card-item:last-child {{
+        border-right: none;
+    }}
+    .dv-sup-card-top {{
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }}
+    .dv-sup-flag-circ {{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 6px rgba(0,0,0,0.4);
+    }}
+    .dv-sup-code-tag {{
+        font-size: 0.72rem;
+        font-weight: 800;
+        color: #A9BEDD;
+        letter-spacing: 0.05em;
+    }}
+    .dv-sup-country-name {{
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: #FFFFFF;
+        white-space: nowrap;
+    }}
+    .dv-sup-doc-type {{
+        font-size: 0.7rem;
+        color: #A9BEDD;
+        white-space: nowrap;
+    }}
+
+    /* Bottom 3-Feature Section */
+    .dv-ref-bottom-features {{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0;
+        margin-top: 8px;
+        margin-bottom: 40px;
+        padding: 0 8px;
+    }}
+    .dv-ref-bottom-col {{
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 10px 24px;
+        border-right: 1px solid rgba(8, 123, 255, 0.2);
+    }}
+    .dv-ref-bottom-col:last-child {{
+        border-right: none;
+    }}
+    .dv-ref-bottom-icon {{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1.5px solid #087BFF;
+        background: rgba(11, 40, 85, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #00C8FF;
+        flex-shrink: 0;
+        box-shadow: 0 0 12px rgba(8, 123, 255, 0.3);
+    }}
+    .dv-ref-bottom-title {{
         font-size: 1.05rem;
         font-weight: 700;
         color: #FFFFFF;
-        margin-bottom: 4px;
+        margin-bottom: 3px;
     }}
-    .dv-ref-prop-desc {{
-        font-size: 0.85rem;
-        color: #8E9DB7;
-        line-height: 1.45;
+    .dv-ref-bottom-desc {{
+        font-size: 0.84rem;
+        color: #A9BEDD;
+        line-height: 1.4;
     }}
 
-    /* Verify Now CTA Button on Hero Card */
+    /* Upload Card CTA button */
     button[key*="btn_verify_hero"],
     button[key*="btn_verify_disabled_hero"] {{
-        background: #0A2558 !important;
+        background: #0B2855 !important;
         color: #FFFFFF !important;
-        font-size: 1.05rem !important;
+        font-size: 1.02rem !important;
         font-weight: 800 !important;
         padding: 12px 24px !important;
         border-radius: 12px !important;
         border: none !important;
         width: 100% !important;
-        box-shadow: 0 4px 16px rgba(10, 37, 88, 0.35) !important;
+        box-shadow: 0 4px 16px rgba(11, 40, 85, 0.4) !important;
         transition: all 0.2s ease !important;
     }}
     button[key*="btn_verify_hero"]:hover {{
-        background: #075BFF !important;
-        box-shadow: 0 6px 22px rgba(7, 91, 255, 0.5) !important;
+        background: #087BFF !important;
+        box-shadow: 0 6px 20px rgba(8, 123, 255, 0.5) !important;
         transform: translateY(-1px) !important;
     }}
     button[key*="btn_verify_disabled_hero"]:disabled {{
-        background: #0A2558 !important;
+        background: #0B2855 !important;
         opacity: 0.7 !important;
-        color: #A0B2CD !important;
+        color: #7E96BF !important;
     }}
 
     /* Top Navbar Link Buttons */
     button[key*="nav_btn_home"] {{
-        background: #163260 !important;
+        background: #087BFF !important;
         color: #FFFFFF !important;
         border-radius: 20px !important;
-        border: 1px solid rgba(255, 255, 255, 0.18) !important;
+        border: none !important;
         font-weight: 700 !important;
-        padding: 6px 16px !important;
+        padding: 6px 18px !important;
+        box-shadow: 0 2px 10px rgba(8, 123, 255, 0.4) !important;
     }}
     button[key*="nav_btn_get_started"] {{
-        background: #FFFFFF !important;
-        color: #06142F !important;
+        background: #087BFF !important;
+        color: #FFFFFF !important;
         border-radius: 9999px !important;
         font-weight: 700 !important;
         border: none !important;
-        padding: 6px 18px !important;
-        box-shadow: 0 4px 14px rgba(255, 255, 255, 0.25) !important;
+        padding: 6px 20px !important;
+        box-shadow: 0 4px 14px rgba(8, 123, 255, 0.4) !important;
     }}
     button[key*="nav_btn_get_started"]:hover {{
-        background: #EAF2FF !important;
-        color: #004BD6 !important;
+        background: #0062D6 !important;
     }}
 </style>
 """
@@ -1354,14 +1441,14 @@ def render_hero_scan_graphic() -> str:
 def render_ref_brand_logo_html() -> str:
     """
     Renders the exact reference header brand: [ = ] icon, DocVerify AI wordmark,
-    and 'AI-Powered Document Authentication' subtitle.
+    vertical divider, and 'AI-Powered Document Authentication' subtitle.
     """
     return """<div class="dv-ref-brand">
 <div class="dv-ref-logo">
-<svg width="34" height="34" viewBox="0 0 34 34" fill="none">
-<rect x="1" y="1" width="32" height="32" rx="8" stroke="#FFFFFF" stroke-width="2" fill="#0A1E48" fill-opacity="0.5"/>
-<path d="M 9,13 L 25,13" stroke="#1E6BFF" stroke-width="2.8" stroke-linecap="round"/>
-<path d="M 9,21 L 25,21" stroke="#1E6BFF" stroke-width="2.8" stroke-linecap="round"/>
+<svg width="36" height="36" viewBox="0 0 34 34" fill="none">
+<rect x="1" y="1" width="32" height="32" rx="8" stroke="#FFFFFF" stroke-width="2" fill="#061735" fill-opacity="0.6"/>
+<path d="M 9,13 L 25,13" stroke="#087BFF" stroke-width="2.8" stroke-linecap="round"/>
+<path d="M 9,21 L 25,21" stroke="#087BFF" stroke-width="2.8" stroke-linecap="round"/>
 <path d="M 12,8 L 8,8 A 2 2 0 0 0 6,10 L 6,14" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
 <path d="M 22,8 L 26,8 A 2 2 0 0 1 28,10 L 28,14" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
 <path d="M 6,20 L 6,24 A 2 2 0 0 0 8,26 L 12,26" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
@@ -1371,6 +1458,7 @@ def render_ref_brand_logo_html() -> str:
 <div class="dv-ref-title">
 <span>DocVerify</span><span class="dv-ai-text">AI</span>
 </div>
+<span class="dv-ref-divider">|</span>
 <div class="dv-ref-sub">
 AI-Powered Document Authentication
 </div>
@@ -1379,11 +1467,14 @@ AI-Powered Document Authentication
 
 def render_hero_left_section() -> str:
     """
-    Renders the Hero left column matching the reference design:
-    - ✦ AI Document Verification pill
-    - Detect. Verify. Trust. heading
-    - Subtitle
-    - 3 bullet points with circular blue icon containers
+    Renders the Hero left column matching Reference Image 1:
+    - ✦ AI Document Verification badge
+    - Main heading: Verify International Identity Documents with AI
+    - Description about detecting forged, tampered and invalid documents
+    - Three feature points:
+      - Authenticity Verification
+      - Tamper & Manipulation Detection
+      - Detailed Verification Report
     """
     return """<div class="dv-ref-hero-left">
 <div class="dv-ref-hero-pill">
@@ -1391,36 +1482,36 @@ def render_hero_left_section() -> str:
 <span>AI Document Verification</span>
 </div>
 <div class="dv-ref-hero-h1">
-Detect. Verify. <span class="dv-trust">Trust.</span>
+Verify International<br/>
+Identity Documents<br/>
+<span class="dv-cyan-highlight">with AI</span>
 </div>
 <div class="dv-ref-hero-sub">
-AI-powered document authentication to detect forgery, tampering and invalid documents instantly.
+Detect forged, tampered or invalid identity documents from multiple countries using advanced computer vision and machine learning.
 </div>
 <div class="dv-ref-feat-list">
 <div class="dv-ref-feat-row">
 <div class="dv-ref-feat-icon-circ">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2583FF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00C8FF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
 <path d="m9 12 2 2 4-4"/>
 </svg>
 </div>
-<span>Authenticity Check</span>
+<span>Authenticity Verification</span>
 </div>
 <div class="dv-ref-feat-row">
 <div class="dv-ref-feat-icon-circ">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2583FF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-<path d="M4 8V4h4"/>
-<path d="M20 8V4h-4"/>
-<path d="M4 16v4h4"/>
-<path d="M20 16v4h-4"/>
-<line x1="8" y1="12" x2="16" y2="12"/>
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00C8FF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+<polygon points="12 2 2 7 12 12 22 7 12 2"/>
+<polyline points="2 17 12 22 22 17"/>
+<polyline points="2 12 12 17 22 12"/>
 </svg>
 </div>
 <span>Tamper &amp; Manipulation Detection</span>
 </div>
 <div class="dv-ref-feat-row">
 <div class="dv-ref-feat-icon-circ">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2583FF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00C8FF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
 <polyline points="14 2 14 8 20 8"/>
 <line x1="16" y1="13" x2="8" y2="13"/>
@@ -1433,132 +1524,147 @@ AI-powered document authentication to detect forgery, tampering and invalid docu
 </div>"""
 
 
+def render_hero_illustration_html() -> str:
+    """
+    Renders Reference Image 2 as the central hero illustration asset.
+    Preserves original proportions, dotted world map, passport, identity card,
+    scanning brackets and security shield with ambient blue glow.
+    """
+    opt_path = BASE_DIR / "assets" / "hero_illustration_opt.png"
+    if not opt_path.exists():
+        opt_path = BASE_DIR / "assets" / "hero_illustration_blended.png"
+    if not opt_path.exists():
+        opt_path = BASE_DIR / "assets" / "hero_illustration.jpg"
+
+    if opt_path.exists():
+        b64_val = base64.b64encode(opt_path.read_bytes()).decode("utf-8")
+        return f"""<div class="dv-hero-illustration-wrap">
+<img src="data:image/png;base64,{b64_val}" class="dv-hero-illustration-img" alt="DocVerify AI Hero Illustration Asset" />
+</div>"""
+    return ""
+
+
 def render_cards_stack_svg() -> str:
     """
-    Renders the 3D identity card stack illustration (Aadhaar, PAN, Driving License
-    with scanning brackets, laser beam, and blue verified badge).
+    Backward-compatible alias pointing directly to Reference Image 2 hero illustration.
     """
-    cards_path = BASE_DIR / "assets" / "cards_stack_illustration.svg"
-    if cards_path.exists():
-        svg_content = cards_path.read_text(encoding="utf-8")
-        return f'<div style="width:100%; display:flex; align-items:center; justify-content:center; padding:10px 0;">{svg_content}</div>'
-    return render_hero_scan_graphic()
+    return render_hero_illustration_html()
 
 
 def render_supported_documents_bar() -> str:
     """
-    Renders the horizontal Supported Documents bar matching the reference design:
-    - Supported Documents header on the left
-    - Aadhaar Card (orange sun emblem)
-    - PAN Card
-    - Voter ID
-    - Driving License
-    - Passport
+    Renders the horizontal Supported Documents bar matching Reference Image 1:
+    Contains all 10 supported document standards from 10 international jurisdictions:
+    1. Albania – National ID (ALB)
+    2. Azerbaijan – Passport (AZE)
+    3. Spain – National ID (DNI) (ESP)
+    4. Estonia – National ID (EST)
+    5. Finland – National ID (FIN)
+    6. Greece – Passport (GRC)
+    7. Latvia – Passport (LVA)
+    8. Russia – Internal Passport (RUS)
+    9. Serbia – Passport (SRB)
+    10. Slovenia – National ID (SVN)
     """
-    return """<div class="dv-ref-supported-bar">
-<div class="dv-ref-sup-title">
-Supported<br/>Documents
+    cards_data = [
+        ("ALB", "Albania", "National ID",
+         '<circle cx="10" cy="10" r="10" fill="#D52B1E"/><path d="M10 5 L11.5 7 L14 6.5 L12.5 8.5 L15 10 L12.5 11 L14 13 L11.5 12.5 L10 14.5 L8.5 12.5 L6 13 L7.5 11 L5 10 L7.5 8.5 L6 6.5 L8.5 7 Z" fill="#111111"/>'),
+        ("AZE", "Azerbaijan", "Passport",
+         '<rect width="20" height="6.7" fill="#00B5E2"/><rect y="6.7" width="20" height="6.7" fill="#ED2939"/><rect y="13.4" width="20" height="6.7" fill="#3F9C35"/><path d="M9.5 8.5 A2 2 0 1 0 9.5 11.5 A1.6 1.6 0 1 1 9.5 8.5 Z" fill="#FFFFFF"/><circle cx="11.5" cy="10" r="0.8" fill="#FFFFFF"/>'),
+        ("ESP", "Spain", "National ID (DNI)",
+         '<rect width="20" height="5" fill="#AA151B"/><rect y="5" width="20" height="10" fill="#F1BF00"/><rect y="15" width="20" height="5" fill="#AA151B"/><circle cx="7" cy="10" r="1.8" fill="#C60B1E"/>'),
+        ("EST", "Estonia", "National ID",
+         '<rect width="20" height="6.7" fill="#0072CE"/><rect y="6.7" width="20" height="6.7" fill="#111111"/><rect y="13.4" width="20" height="6.7" fill="#FFFFFF"/>'),
+        ("FIN", "Finland", "National ID",
+         '<rect width="20" height="20" fill="#FFFFFF"/><rect x="6" width="3.5" height="20" fill="#002F6C"/><rect y="8" width="20" height="3.5" fill="#002F6C"/>'),
+        ("GRC", "Greece", "Passport",
+         '<rect width="20" height="20" fill="#0D5EAF"/><rect y="2.2" width="20" height="2.2" fill="#FFFFFF"/><rect y="6.6" width="20" height="2.2" fill="#FFFFFF"/><rect y="11" width="20" height="2.2" fill="#FFFFFF"/><rect y="15.4" width="20" height="2.2" fill="#FFFFFF"/><rect width="8.8" height="8.8" fill="#0D5EAF"/><rect x="3" width="2.8" height="8.8" fill="#FFFFFF"/><rect y="3" width="8.8" height="2.8" fill="#FFFFFF"/>'),
+        ("LVA", "Latvia", "Passport",
+         '<rect width="20" height="8" fill="#9E3039"/><rect y="8" width="20" height="4" fill="#FFFFFF"/><rect y="12" width="20" height="8" fill="#9E3039"/>'),
+        ("RUS", "Russia", "Internal Passport",
+         '<rect width="20" height="6.7" fill="#FFFFFF"/><rect y="6.7" width="20" height="6.7" fill="#0039A6"/><rect y="13.4" width="20" height="6.7" fill="#D52B1E"/>'),
+        ("SRB", "Serbia", "Passport",
+         '<rect width="20" height="6.7" fill="#C6363C"/><rect y="6.7" width="20" height="6.7" fill="#0C4076"/><rect y="13.4" width="20" height="6.7" fill="#FFFFFF"/><circle cx="7" cy="10" r="2" fill="#FFD700"/>'),
+        ("SVN", "Slovenia", "National ID",
+         '<rect width="20" height="6.7" fill="#FFFFFF"/><rect y="6.7" width="20" height="6.7" fill="#005CE6"/><rect y="13.4" width="20" height="6.7" fill="#ED1C24"/><circle cx="6.5" cy="7.5" r="1.6" fill="#005CE6"/>'),
+    ]
+
+    items_html = []
+    for code, name, doc_type, svg_inner in cards_data:
+        item = f"""<div class="dv-sup-card-item">
+<div class="dv-sup-card-top">
+<div class="dv-sup-flag-circ"><svg width="20" height="20" viewBox="0 0 20 20"><defs><clipPath id="c_{code}"><circle cx="10" cy="10" r="10"/></clipPath></defs><g clip-path="url(#c_{code})">{svg_inner}</g></svg></div>
+<span class="dv-sup-code-tag">{code}</span>
 </div>
-<div class="dv-ref-sup-item">
-<div class="dv-ref-sup-icon">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-<circle cx="12" cy="12" r="5" fill="#FF6B00"/>
-<circle cx="12" cy="12" r="2.5" fill="#FFFFFF"/>
-<path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="#FF6B00" stroke-width="2" stroke-linecap="round"/>
+<div class="dv-sup-country-name">{name}</div>
+<div class="dv-sup-doc-type">{doc_type}</div>
+</div>"""
+        items_html.append(item)
+
+    cards_joined = "".join(items_html)
+
+    return f"""<div class="dv-ref-sup-bar-10">
+<div class="dv-sup-title-box">
+<div class="dv-sup-globe-badge">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00C8FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="10"/>
+<line x1="2" y1="12" x2="22" y2="12"/>
+<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
 </svg>
 </div>
-<span>Aadhaar Card</span>
+<div>
+<div class="dv-sup-main-title">Supported Documents</div>
+<div class="dv-sup-sub-title">10 Document Types from 10 Countries</div>
 </div>
-<div class="dv-ref-sup-item">
-<div class="dv-ref-sup-icon">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#06142F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-<rect x="2" y="5" width="20" height="14" rx="2"/>
-<line x1="2" y1="10" x2="22" y2="10"/>
-<line x1="6" y1="14" x2="11" y2="14"/>
-<circle cx="16.5" cy="14.5" r="1.5"/>
-</svg>
 </div>
-<span>PAN Card</span>
-</div>
-<div class="dv-ref-sup-item">
-<div class="dv-ref-sup-icon">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#06142F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-<rect x="3" y="4" width="18" height="16" rx="2"/>
-<rect x="6" y="7" width="5" height="5" rx="1"/>
-<line x1="14" y1="8" x2="18" y2="8"/>
-<line x1="14" y1="12" x2="18" y2="12"/>
-<line x1="6" y1="16" x2="18" y2="16"/>
-</svg>
-</div>
-<span>Voter ID</span>
-</div>
-<div class="dv-ref-sup-item">
-<div class="dv-ref-sup-icon">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#06142F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-<path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9C2.1 11.1 2 11.5 2 12v4c0 .6.4 1 1 1h2"/>
-<circle cx="7" cy="17" r="2"/>
-<path d="M9 17h6"/>
-<circle cx="17" cy="17" r="2"/>
-</svg>
-</div>
-<span>Driving License</span>
-</div>
-<div class="dv-ref-sup-item">
-<div class="dv-ref-sup-icon">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#06142F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-<circle cx="12" cy="12" r="9"/>
-<line x1="3" y1="12" x2="21" y2="12"/>
-<path d="M12 3a15.3 15.3 0 0 1 4 9 15.3 15.3 0 0 1-4 9 15.3 15.3 0 0 1-4-9 15.3 15.3 0 0 1 4-9z"/>
-</svg>
-</div>
-<span>Passport</span>
-</div>
+{cards_joined}
 </div>"""
 
 
 def render_bottom_value_props_bar() -> str:
     """
-    Renders the 3-column value props at the bottom of the homepage:
-    - Privacy First (shield icon)
-    - Fast & Accurate (lightning icon)
-    - Detailed Report (chart icon)
+    Renders the 3 horizontally aligned feature blocks matching Reference Image 1:
+    - Fast Verification (lightning icon): Get results within seconds.
+    - Privacy First (padlock icon): Your files are processed temporarily and not stored.
+    - Comprehensive Report (analytics icon): View evidence, risk score and download a PDF report.
     """
-    return """<div class="dv-ref-props-bar">
-<div class="dv-ref-prop-col">
-<div class="dv-ref-prop-icon">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2583FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-<path d="m9 12 2 2 4-4"/>
-</svg>
-</div>
-<div>
-<div class="dv-ref-prop-title">Privacy First</div>
-<div class="dv-ref-prop-desc">Your files are processed temporarily and not stored.</div>
-</div>
-</div>
-<div class="dv-ref-prop-col">
-<div class="dv-ref-prop-icon">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2583FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    return """<div class="dv-ref-bottom-features">
+<div class="dv-ref-bottom-col">
+<div class="dv-ref-bottom-icon">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00C8FF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
 </svg>
 </div>
 <div>
-<div class="dv-ref-prop-title">Fast &amp; Accurate</div>
-<div class="dv-ref-prop-desc">Get verification results within seconds.</div>
+<div class="dv-ref-bottom-title">Fast Verification</div>
+<div class="dv-ref-bottom-desc">Get results within seconds.</div>
 </div>
 </div>
-<div class="dv-ref-prop-col">
-<div class="dv-ref-prop-icon">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2583FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+<div class="dv-ref-bottom-col">
+<div class="dv-ref-bottom-icon">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00C8FF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+<path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+</svg>
+</div>
+<div>
+<div class="dv-ref-bottom-title">Privacy First</div>
+<div class="dv-ref-bottom-desc">Your files are processed temporarily and not stored.</div>
+</div>
+</div>
+<div class="dv-ref-bottom-col">
+<div class="dv-ref-bottom-icon">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00C8FF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
 <line x1="18" y1="20" x2="18" y2="10"/>
 <line x1="12" y1="20" x2="12" y2="4"/>
 <line x1="6" y1="20" x2="6" y2="14"/>
 </svg>
 </div>
 <div>
-<div class="dv-ref-prop-title">Detailed Report</div>
-<div class="dv-ref-prop-desc">View evidence, highlighted regions and download a PDF report.</div>
+<div class="dv-ref-bottom-title">Comprehensive Report</div>
+<div class="dv-ref-bottom-desc">View evidence, risk score and download a PDF report.</div>
 </div>
 </div>
 </div>"""
+
 

@@ -36,6 +36,7 @@ from src.ui_components import (
     render_ref_brand_logo_html,
     render_hero_left_section,
     render_cards_stack_svg,
+    render_hero_illustration_html,
     render_supported_documents_bar,
     render_bottom_value_props_bar
 )
@@ -112,9 +113,9 @@ def render_navbar():
     _theme = st.session_state.get("dv_theme", "dark")
     current_nav = st.session_state.get("nav_section", "home")
 
-    # Navbar Container (Matching Reference: [ = ] DocVerify AI Subtitle on left, Links + Get Started + Theme toggle on right)
+    # Navbar Container (Matching Reference: [ = ] DocVerify AI Subtitle on left, Links + Theme Toggle + Get Started on right)
     nav_col1, nav_col2, nav_col3, nav_col4, nav_col5, nav_col6, nav_col7, nav_col8 = st.columns(
-        [0.44, 0.08, 0.09, 0.11, 0.09, 0.06, 0.09, 0.04],
+        [0.40, 0.07, 0.08, 0.14, 0.10, 0.06, 0.05, 0.10],
         vertical_alignment="center"
     )
 
@@ -130,29 +131,29 @@ def render_navbar():
             set_nav("features")
 
     with nav_col4:
+        if st.button("Supported Documents", key="nav_btn_docs", use_container_width=True, type="primary" if current_nav == "supported_docs" else "secondary"):
+            set_nav("supported_docs")
+
+    with nav_col5:
         if st.button("How It Works", key="nav_btn_how", use_container_width=True, type="primary" if current_nav == "how_it_works" else "secondary"):
             set_nav("how_it_works")
 
-    with nav_col5:
-        if st.button("Documents", key="nav_btn_docs", use_container_width=True, type="primary" if current_nav == "supported_docs" else "secondary"):
-            set_nav("supported_docs")
-
     with nav_col6:
-        if st.button("FAQ", key="nav_btn_faq", use_container_width=True, type="primary" if current_nav == "faq" else "secondary"):
-            set_nav("faq")
+        if st.button("About", key="nav_btn_about", use_container_width=True, type="primary" if current_nav == "about" else "secondary"):
+            set_nav("about")
 
     with nav_col7:
-        if st.button("Get Started", key="nav_btn_get_started", use_container_width=True):
-            set_nav("upload")
-
-    with nav_col8:
         theme_icon = ":material/light_mode:" if _theme == "dark" else ":material/dark_mode:"
         theme_tooltip = "Switch to Light Mode" if _theme == "dark" else "Switch to Dark Mode"
         if st.button(theme_icon, key="dv_toggle_theme", help=theme_tooltip, use_container_width=True):
             st.session_state["dv_theme"] = "light" if _theme == "dark" else "dark"
             st.rerun()
 
-    st.markdown("<div style='height: 12px;'></div>", unsafe_allow_html=True)
+    with nav_col8:
+        if st.button("Get Started", key="nav_btn_get_started", use_container_width=True):
+            set_nav("upload")
+
+    st.markdown("<div style='height: 1px; background: rgba(8, 123, 255, 0.22); margin-top: 10px; margin-bottom: 24px;'></div>", unsafe_allow_html=True)
 
 
 # ==============================================================================
@@ -177,7 +178,7 @@ def render_upload_card(container_type="hero"):
                     </svg>
                 </div>
                 <div class="dv-ref-card-title">Verify a Document</div>
-                <div class="dv-ref-card-subtitle">Upload a government ID to check its authenticity</div>
+                <div class="dv-ref-card-subtitle">Upload a government ID or passport to check its authenticity</div>
             </div>
         """, unsafe_allow_html=True)
     else:
@@ -285,8 +286,8 @@ def render_upload_card(container_type="hero"):
         except Exception:
             st.error("Invalid image file. Please upload a standard passport or identity document scan.")
 
-    # Primary Verify Now Action Button
-    btn_label = "Verify Now" if is_hero else "Verify Document Authenticity"
+    # Primary Verify Document Action Button
+    btn_label = "Verify Document" if is_hero else "Verify Document Authenticity"
     if uploaded_file is not None:
         verify_btn = st.button(
             btn_label,
@@ -734,20 +735,20 @@ def render_verification_results(result, file_name):
 def render_home_page():
     # Hero Section: Split into 3 columns matching reference design:
     # 1. Left: Headline & 3 Feature Bullets
-    # 2. Center: 3D Stacked Identity Cards Illustration
+    # 2. Center: Reference Image 2 Hero Illustration Asset
     # 3. Right: High-contrast White Upload Card
-    hero_col_left, hero_col_center, hero_col_right = st.columns([1.18, 0.98, 1.14], gap="medium", vertical_alignment="center")
+    hero_col_left, hero_col_center, hero_col_right = st.columns([1.16, 1.05, 1.15], gap="medium", vertical_alignment="center")
 
     with hero_col_left:
         st.html(render_hero_left_section())
 
     with hero_col_center:
-        st.html(render_cards_stack_svg())
+        st.html(render_hero_illustration_html())
 
     with hero_col_right:
         render_upload_card(container_type="hero")
 
-    # Full-width Supported Documents Bar matching reference
+    # Full-width Supported Documents Bar (10 Countries) matching reference
     st.html(render_supported_documents_bar())
 
     # 3-column Bottom Value Props Bar matching reference
