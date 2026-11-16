@@ -16,6 +16,7 @@ Dataset/**
 # Operating System & Temporary files
 *.tmp
 *.log
+*.bak
 .DS_Store
 Thumbs.db
 desktop.ini
