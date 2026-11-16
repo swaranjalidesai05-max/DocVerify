@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bgBase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#040C1E"/>
+      <stop offset="45%" stop-color="#06142F"/>
+      <stop offset="100%" stop-color="#0A1E48"/>
+    </linearGradient>
+
+    <radialGradient id="cyanGlow" cx="45%" cy="35%" r="50%">
+      <stop offset="0%" stop-color="#0066FF" stop-opacity="0.22"/>
+      <stop offset="60%" stop-color="#0044BB" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#040C1E" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="laserGlow" cx="46%" cy="52%" r="28%">
+      <stop offset="0%" stop-color="#00D2FF" stop-opacity="0.18"/>
+      <stop offset="50%" stop-color="#0066FF" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#040C1E" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#083074" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#0C4AA8" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#04122C" stop-opacity="0.2"/>
+    </linearGradient>
+
+    <linearGradient id="waveGrad2" x1="0%" y1="20%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D4FA8" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#1467D2" stop-opacity="0.7"/>
+      <stop offset="85%" stop-color="#082A62" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#030A18" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <linearGradient id="waveGrad3" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#051B3E" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#0A367E" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#020814" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <filter id="softBlur" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+  </defs>
+
+  <!-- Deep Navy Base -->
+  <rect width="1920" height="1080" fill="url(#bgBase)"/>
+
+  <!-- Ambient Glows -->
+  <rect width="1920" height="1080" fill="url(#cyanGlow)"/>
+  <rect width="1920" height="1080" fill="url(#laserGlow)"/>
+
+  <!-- Organic Wave Layer 1 (Deep background flow) -->
+  <path d="M -100,580 Q 280,380 720,540 T 1560,510 Q 1820,490 2050,600 L 2050,1150 L -100,1150 Z"
+        fill="url(#waveGrad1)" filter="url(#softBlur)"/>
+
+  <!-- Organic Wave Layer 2 (Vibrant royal blue mid-flow) -->
+  <path d="M -120,720 C 180,520 540,680 920,590 C 1280,510 1620,620 2060,560 L 2060,1180 L -120,1180 Z"
+        fill="url(#waveGrad2)"/>
+
+  <!-- Organic Wave Layer 3 (Foreground dark navy lower sweep) -->
+  <path d="M -80,820 C 240,680 620,840 1020,760 C 1420,680 1780,800 2080,740 L 2080,1200 L -80,1200 Z"
+        fill="url(#waveGrad3)"/>
+
+  <!-- Subtle grid lines accent -->
+  <g stroke="rgba(255, 255, 255, 0.018)" stroke-width="1">
+    <line x1="0" y1="216" x2="1920" y2="216"/>
+    <line x1="0" y1="432" x2="1920" y2="432"/>
+    <line x1="0" y1="648" x2="1920" y2="648"/>
+    <line x1="0" y1="864" x2="1920" y2="864"/>
+    <line x1="384" y1="0" x2="384" y2="1080"/>
+    <line x1="768" y1="0" x2="768" y2="1080"/>
+    <line x1="1152" y1="0" x2="1152" y2="1080"/>
+    <line x1="1536" y1="0" x2="1536" y2="1080"/>
+  </g>
+</svg>

@@ -32,7 +32,12 @@ from src.ui_components import (
     resolve_document_display_label,
     overlay_cam_map,
     render_circular_risk_gauge,
-    render_hero_scan_graphic
+    render_hero_scan_graphic,
+    render_ref_brand_logo_html,
+    render_hero_left_section,
+    render_cards_stack_svg,
+    render_supported_documents_bar,
+    render_bottom_value_props_bar
 )
 
 # ==============================================================================
@@ -107,57 +112,40 @@ def render_navbar():
     _theme = st.session_state.get("dv_theme", "dark")
     current_nav = st.session_state.get("nav_section", "home")
 
-    # Navbar Container
-    nav_col1, nav_col2, nav_col3, nav_col4, nav_col5, nav_col6, nav_col7, nav_col8, nav_col9 = st.columns(
-        [0.26, 0.08, 0.09, 0.11, 0.14, 0.07, 0.07, 0.09, 0.09],
+    # Navbar Container (Matching Reference: [ = ] DocVerify AI Subtitle on left, Links + Get Started + Theme toggle on right)
+    nav_col1, nav_col2, nav_col3, nav_col4, nav_col5, nav_col6, nav_col7, nav_col8 = st.columns(
+        [0.44, 0.08, 0.09, 0.11, 0.09, 0.06, 0.09, 0.04],
         vertical_alignment="center"
     )
 
     with nav_col1:
-        st.markdown("""
-        <div class="dv-nav-brand">
-            <div class="dv-nav-logo-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    <path d="m9 12 2 2 4-4"/>
-                </svg>
-            </div>
-            <div>
-                <span class="dv-nav-brand-title">DocVerify</span>
-                <span class="dv-nav-brand-badge">AI SaaS</span>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.html(render_ref_brand_logo_html())
 
     with nav_col2:
         if st.button("Home", key="nav_btn_home", use_container_width=True, type="primary" if current_nav == "home" else "secondary"):
             set_nav("home")
 
     with nav_col3:
-        if st.button("Verify", key="nav_btn_upload", use_container_width=True, type="primary" if current_nav == "upload" else "secondary"):
-            set_nav("upload")
-
-    with nav_col4:
         if st.button("Features", key="nav_btn_features", use_container_width=True, type="primary" if current_nav == "features" else "secondary"):
             set_nav("features")
 
-    with nav_col5:
+    with nav_col4:
         if st.button("How It Works", key="nav_btn_how", use_container_width=True, type="primary" if current_nav == "how_it_works" else "secondary"):
             set_nav("how_it_works")
 
-    with nav_col6:
-        if st.button("Docs", key="nav_btn_docs", use_container_width=True, type="primary" if current_nav == "supported_docs" else "secondary"):
+    with nav_col5:
+        if st.button("Documents", key="nav_btn_docs", use_container_width=True, type="primary" if current_nav == "supported_docs" else "secondary"):
             set_nav("supported_docs")
 
-    with nav_col7:
+    with nav_col6:
         if st.button("FAQ", key="nav_btn_faq", use_container_width=True, type="primary" if current_nav == "faq" else "secondary"):
             set_nav("faq")
 
-    with nav_col8:
-        if st.button("About", key="nav_btn_about", use_container_width=True, type="primary" if current_nav == "about" else "secondary"):
-            set_nav("about")
+    with nav_col7:
+        if st.button("Get Started", key="nav_btn_get_started", use_container_width=True):
+            set_nav("upload")
 
-    with nav_col9:
+    with nav_col8:
         theme_icon = ":material/light_mode:" if _theme == "dark" else ":material/dark_mode:"
         theme_tooltip = "Switch to Light Mode" if _theme == "dark" else "Switch to Dark Mode"
         if st.button(theme_icon, key="dv_toggle_theme", help=theme_tooltip, use_container_width=True):
@@ -179,17 +167,17 @@ def render_upload_card(container_type="hero"):
 
     if is_hero:
         st.markdown("""
-        <div class="dv-upload-card-white">
-            <div class="dv-upload-card-title">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#075BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                    <polyline points="17 8 12 3 7 8"/>
-                    <line x1="12" y1="3" x2="12" y2="15"/>
-                </svg>
-                <span>Verify a Document</span>
-            </div>
-            <div class="dv-upload-card-subtitle">
-                Upload a government passport or identity card scan for instant multi-modal forgery detection.
+        <div class="dv-ref-upload-card">
+            <div class="dv-ref-card-header">
+                <div class="dv-ref-card-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/>
+                        <path d="M12 12v9"/>
+                        <path d="m8 16 4-4 4 4"/>
+                    </svg>
+                </div>
+                <div class="dv-ref-card-title">Verify a Document</div>
+                <div class="dv-ref-card-subtitle">Upload a government ID to check its authenticity</div>
             </div>
         """, unsafe_allow_html=True)
     else:
@@ -220,12 +208,19 @@ def render_upload_card(container_type="hero"):
     )
 
     # File Format / Constraint Note
-    st.markdown("""
-    <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.75rem; color:#64748B; margin-top:6px; margin-bottom:16px;">
-        <span>Supported: <b>JPG, PNG, WEBP, BMP</b></span>
-        <span>Max File Size: <b>200 MB</b></span>
-    </div>
-    """, unsafe_allow_html=True)
+    if is_hero:
+        st.markdown("""
+        <div class="dv-ref-formats-note">
+            Supported formats: JPG, PNG, PDF &nbsp;|&nbsp; Max size: 10 MB
+        </div>
+        """, unsafe_allow_html=True)
+    else:
+        st.markdown("""
+        <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.75rem; color:#64748B; margin-top:6px; margin-bottom:16px;">
+            <span>Supported: <b>JPG, PNG, WEBP, BMP</b></span>
+            <span>Max File Size: <b>200 MB</b></span>
+        </div>
+        """, unsafe_allow_html=True)
 
     # Verification Settings (Policy & Layout Mode)
     with st.expander("Verification Risk Settings & Layout Options", expanded=False):
@@ -291,21 +286,22 @@ def render_upload_card(container_type="hero"):
             st.error("Invalid image file. Please upload a standard passport or identity document scan.")
 
     # Primary Verify Now Action Button
+    btn_label = "Verify Now" if is_hero else "Verify Document Authenticity"
     if uploaded_file is not None:
         verify_btn = st.button(
-            "Verify Document Authenticity",
+            btn_label,
             type="primary",
             use_container_width=True,
-            icon=":material/shield:",
+            icon=":material/verified_user:" if is_hero else ":material/shield:",
             key=f"btn_verify_{container_type}"
         )
     else:
         st.button(
-            "Verify Document Authenticity",
+            btn_label,
             type="secondary",
             disabled=True,
             use_container_width=True,
-            icon=":material/shield:",
+            icon=":material/verified_user:" if is_hero else ":material/shield:",
             key=f"btn_disabled_{container_type}"
         )
         verify_btn = False
@@ -736,114 +732,26 @@ def render_verification_results(result, file_name):
 # PAGE: Home View (Landing Page with Hero & Upload Card)
 # ==============================================================================
 def render_home_page():
-    # Hero Section (Split: Brand & Features on Left, White Upload Card on Right)
-    hero_col_left, hero_col_right = st.columns([1.1, 0.9], gap="large")
+    # Hero Section: Split into 3 columns matching reference design:
+    # 1. Left: Headline & 3 Feature Bullets
+    # 2. Center: 3D Stacked Identity Cards Illustration
+    # 3. Right: High-contrast White Upload Card
+    hero_col_left, hero_col_center, hero_col_right = st.columns([1.18, 0.98, 1.14], gap="medium", vertical_alignment="center")
 
     with hero_col_left:
-        st.markdown("""
-        <div class="dv-hero-wrap">
-            <div class="dv-hero-pill">
-                <span class="dv-hero-pill-dot"></span>
-                <span>Production AI Screening Engine &bull; Dual-Stream Architecture</span>
-            </div>
-            <h1 class="dv-hero-h1">
-                Detect. Verify.<br/>
-                <span class="dv-gradient-text">Trust.</span>
-            </h1>
-            <div class="dv-hero-sub">
-                AI-powered document authentication to detect forgery, tampering and invalid identity documents across physical and digital channels.
-            </div>
-            <div class="dv-hero-features-list">
-                <div class="dv-hero-feat-item">
-                    <div class="dv-hero-feat-icon">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                    </div>
-                    <span><b>Authenticity Verification:</b> Multi-scale macro and micro feature analysis.</span>
-                </div>
-                <div class="dv-hero-feat-item">
-                    <div class="dv-hero-feat-icon">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                    </div>
-                    <span><b>Tamper &amp; Manipulation Detection:</b> Inpaint, rewrite, and photo-splice identification.</span>
-                </div>
-                <div class="dv-hero-feat-item">
-                    <div class="dv-hero-feat-icon">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                    </div>
-                    <span><b>Detailed Verification Reports:</b> Cryptographically structured PDF audit certificates.</span>
-                </div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.html(render_hero_left_section())
 
-        # Scanning Graphic Illustration
-        st.html(render_hero_scan_graphic())
+    with hero_col_center:
+        st.html(render_cards_stack_svg())
 
     with hero_col_right:
-        # High-contrast White Upload Card directly embedded on Hero
         render_upload_card(container_type="hero")
 
-    st.markdown("<div style='height: 48px;'></div>", unsafe_allow_html=True)
+    # Full-width Supported Documents Bar matching reference
+    st.html(render_supported_documents_bar())
 
-    # --------------------------------------------------------------------------
-    # Supported Documents Preview (5 Core Categories)
-    # --------------------------------------------------------------------------
-    st.markdown("""
-    <div style="text-align:center; max-width:680px; margin:0 auto 32px auto;">
-        <div style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--dv-accent-bright); margin-bottom:8px;">Supported Identity Standards</div>
-        <div style="font-size:2rem; font-weight:800; letter-spacing:-0.03em; color:var(--dv-text-main);">Comprehensive Document Coverage</div>
-        <div style="font-size:0.95rem; color:var(--dv-text-secondary); margin-top:8px;">Engineered to detect character rewrites, photo substitution, and synthetic tampering across 5 primary categories and 10 international jurisdictions.</div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    d1, d2, d3, d4, d5 = st.columns(5)
-    doc_cards = [
-        ("Aadhaar Card", "UIDAI Identity Standard", ["QR Verifier", "Micro-Text", "Demographics"], d1),
-        ("PAN Card", "Income Tax Department", ["Alphanumeric", "Hologram Area", "Font Fidelity"], d2),
-        ("Voter ID", "Election Commission (EPIC)", ["Ghost Photo", "Serial Check", "Guilloche"], d3),
-        ("Driving Licence", "MoRTH Standard Card", ["Chip Contour", "State Syntax", "Expiry Rule"], d4),
-        ("Passport", "ICAO 9303 Compliant", ["MRZ Checksum", "Security Waves", "UV Simulation"], d5),
-    ]
-
-    for title, sub, tags, col in doc_cards:
-        with col:
-            tags_html = "".join([f'<span class="dv-doc-tag">{t}</span>' for t in tags])
-            st.markdown(f"""
-            <div class="dv-doc-card">
-                <div class="dv-doc-icon">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
-                </div>
-                <div class="dv-doc-name">{title}</div>
-                <div class="dv-doc-desc">{sub}</div>
-                <div class="dv-doc-tags">{tags_html}</div>
-            </div>
-            """, unsafe_allow_html=True)
-
-    st.markdown("<div style='height: 48px;'></div>", unsafe_allow_html=True)
-
-    # --------------------------------------------------------------------------
-    # Privacy & Benefits Highlight
-    # --------------------------------------------------------------------------
-    st.markdown("""
-    <div style="background:var(--dv-surface); border:1px solid var(--dv-border); border-radius:16px; padding:32px 36px; box-shadow:var(--dv-shadow-md); margin-bottom:48px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
-            <div style="max-width:640px;">
-                <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#10B981; margin-bottom:6px;">Zero-Knowledge Privacy</div>
-                <div style="font-size:1.5rem; font-weight:800; color:var(--dv-text-main); margin-bottom:8px;">Privacy-Conscious On-Premise Processing</div>
-                <div style="font-size:0.9rem; color:var(--dv-text-secondary); line-height:1.6;">
-                    DocVerify operates strictly in volatile memory. Uploaded document scans and extracted identity details are never written to external cloud databases, persistent logs, or tracking systems.
-                </div>
-            </div>
-            <div>
-                <a href="#top" style="text-decoration:none;">
-                    <div style="background:linear-gradient(135deg, #075BFF 0%, #2583FF 100%); color:#FFFFFF; font-weight:700; font-size:0.9rem; padding:12px 24px; border-radius:8px; box-shadow:0 4px 16px rgba(7, 91, 255, 0.4);">
-                        Start Instant Verification &rarr;
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    # 3-column Bottom Value Props Bar matching reference
+    st.html(render_bottom_value_props_bar())
 
 
 # ==============================================================================
