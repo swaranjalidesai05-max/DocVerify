@@ -163,15 +163,25 @@ def render_upload_card(container_type="hero"):
     """
     Renders the unified upload & verification configuration card.
     Directly connected to the backend inference engine.
+    In hero mode, all elements (header, dropzone, uploader, format note,
+    risk settings, file details, and verify CTA) reside in ONE unified white card.
     """
     is_hero = (container_type == "hero")
 
-    if is_hero:
-        st.markdown("""
-        <div class="dv-ref-upload-card">
+    # Check for direct template preselection from Supported Documents bar
+    tpl_from_url = st.query_params.get("tpl", None)
+    if tpl_from_url and f"mode_{container_type}" not in st.session_state:
+        st.session_state[f"mode_{container_type}"] = "Manual Template"
+        st.session_state[f"manual_tpl_{container_type}"] = tpl_from_url
+
+    container_context = st.container(key="dv_hero_upload_card", border=True) if is_hero else st.container()
+
+    with container_context:
+        if is_hero:
+            st.markdown("""
             <div class="dv-ref-card-header">
                 <div class="dv-ref-card-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#087BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/>
                         <path d="M12 12v9"/>
                         <path d="m8 16 4-4 4 4"/>
@@ -180,138 +190,143 @@ def render_upload_card(container_type="hero"):
                 <div class="dv-ref-card-title">Verify a Document</div>
                 <div class="dv-ref-card-subtitle">Upload a government ID or passport to check its authenticity</div>
             </div>
-        """, unsafe_allow_html=True)
-    else:
-        st.markdown("""
-        <div class="dv-card">
-            <div class="dv-card-header">
-                <div class="dv-card-title-main">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                        <polyline points="17 8 12 3 7 8"/>
-                        <line x1="12" y1="3" x2="12" y2="15"/>
-                    </svg>
-                    <span>Document Intake &amp; Ingestion</span>
+            """, unsafe_allow_html=True)
+        else:
+            st.markdown("""
+            <div class="dv-card">
+                <div class="dv-card-header">
+                    <div class="dv-card-title-main">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        <span>Document Intake &amp; Ingestion</span>
+                    </div>
+                    <div style="font-size:0.75rem; font-weight:700; color:var(--dv-accent-bright);">Single-Session Privacy Guard</div>
                 </div>
-                <div style="font-size:0.75rem; font-weight:700; color:var(--dv-accent-bright);">Single-Session Privacy Guard</div>
-            </div>
-            <div style="color:var(--dv-text-secondary); font-size:0.875rem; margin-bottom:16px;">
-                Drag and drop your document scan below. The file is analyzed strictly in-memory without persistent server storage.
-            </div>
-        """, unsafe_allow_html=True)
-
-    uploaded_file = st.file_uploader(
-        "Choose an identity document",
-        type=["jpg", "jpeg", "png", "webp", "bmp"],
-        label_visibility="collapsed",
-        key=f"file_uploader_{container_type}",
-        help="Supported: JPG, JPEG, PNG, WEBP, BMP. Maximum size: 200 MB."
-    )
-
-    # File Format / Constraint Note
-    if is_hero:
-        st.markdown("""
-        <div class="dv-ref-formats-note">
-            Supported formats: JPG, PNG, PDF &nbsp;|&nbsp; Max size: 10 MB
-        </div>
-        """, unsafe_allow_html=True)
-    else:
-        st.markdown("""
-        <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.75rem; color:#64748B; margin-top:6px; margin-bottom:16px;">
-            <span>Supported: <b>JPG, PNG, WEBP, BMP</b></span>
-            <span>Max File Size: <b>200 MB</b></span>
-        </div>
-        """, unsafe_allow_html=True)
-
-    # Verification Settings (Policy & Layout Mode)
-    with st.expander("Verification Risk Settings & Layout Options", expanded=False):
-        c_set1, c_set2 = st.columns(2)
-        with c_set1:
-            st.markdown("<b style='font-size:0.8rem;'>Operating Risk Policy</b>", unsafe_allow_html=True)
-            policy_keys = [k for k, _, _ in POLICY_CHOICES]
-            policy_labels = {k: name for k, name, _ in POLICY_CHOICES}
-            selected_policy = st.selectbox(
-                "Risk Policy",
-                policy_keys,
-                index=0,
-                format_func=lambda k: policy_labels.get(k, k),
-                key=f"policy_{container_type}",
-                label_visibility="collapsed"
-            )
-
-        with c_set2:
-            st.markdown("<b style='font-size:0.8rem;'>Document Layout Mode</b>", unsafe_allow_html=True)
-            doc_mode = st.radio(
-                "Layout Mode",
-                ["Auto AI Detection", "Manual Template"],
-                horizontal=True,
-                key=f"mode_{container_type}",
-                label_visibility="collapsed"
-            )
-
-        template_override = None
-        if doc_mode == "Manual Template":
-            manual_keys = [k for k, _ in DOCUMENT_TYPE_CHOICES if k != "auto"]
-            manual_labels = {k: label for k, label in DOCUMENT_TYPE_CHOICES}
-            template_override = st.selectbox(
-                "Select Specific Template",
-                manual_keys,
-                index=0,
-                format_func=lambda k: manual_labels.get(k, k),
-                key=f"manual_tpl_{container_type}"
-            )
-
-    # Stale Session Prevention & Image Loading
-    pil_image = None
-    file_name = "uploaded_document.jpg"
-
-    if uploaded_file is not None:
-        if st.session_state.get("current_doc_id") != uploaded_file.name:
-            st.session_state["current_doc_id"] = uploaded_file.name
-            st.session_state.pop("last_result", None)
-            st.session_state.pop("last_file_name", None)
-
-        try:
-            pil_image = Image.open(uploaded_file).convert("RGB")
-            file_name = uploaded_file.name
-            st.markdown(f"""
-            <div style="background:rgba(7, 91, 255, 0.08); border:1px solid rgba(7, 91, 255, 0.25); border-radius:8px; padding:10px 14px; margin-bottom:14px; display:flex; justify-content:space-between; align-items:center;">
-                <div style="display:flex; align-items:center; gap:8px;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#075BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                    <span style="font-weight:600; font-size:0.85rem; color:#06142F;">{file_name}</span>
+                <div style="color:var(--dv-text-secondary); font-size:0.875rem; margin-bottom:16px;">
+                    Drag and drop your document scan below. The file is analyzed strictly in-memory without persistent server storage.
                 </div>
-                <span style="font-size:0.75rem; font-weight:700; color:#075BFF;">{pil_image.width} × {pil_image.height} px</span>
             </div>
             """, unsafe_allow_html=True)
-        except Exception:
-            st.error("Invalid image file. Please upload a standard passport or identity document scan.")
 
-    # Primary Verify Document Action Button
-    btn_label = "Verify Document" if is_hero else "Verify Document Authenticity"
-    if uploaded_file is not None:
-        verify_btn = st.button(
-            btn_label,
-            type="primary",
-            use_container_width=True,
-            icon=":material/verified_user:" if is_hero else ":material/shield:",
-            key=f"btn_verify_{container_type}"
+        uploaded_file = st.file_uploader(
+            "Choose an identity document",
+            type=["jpg", "jpeg", "png", "webp", "bmp"],
+            label_visibility="collapsed",
+            key=f"file_uploader_{container_type}",
+            help="Supported: JPG, JPEG, PNG, WEBP, BMP. Maximum size: 200 MB."
         )
-    else:
-        st.button(
-            btn_label,
-            type="secondary",
-            disabled=True,
-            use_container_width=True,
-            icon=":material/verified_user:" if is_hero else ":material/shield:",
-            key=f"btn_disabled_{container_type}"
-        )
-        verify_btn = False
 
-    st.markdown("</div>", unsafe_allow_html=True)
+        # File Format / Constraint Note
+        if is_hero:
+            st.markdown("""
+            <div class="dv-ref-formats-note">
+                Supported formats: JPG, PNG, PDF &nbsp;|&nbsp; Max size: 10 MB
+            </div>
+            """, unsafe_allow_html=True)
+        else:
+            st.markdown("""
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.75rem; color:#64748B; margin-top:6px; margin-bottom:16px;">
+                <span>Supported: <b>JPG, PNG, WEBP, BMP</b></span>
+                <span>Max File Size: <b>200 MB</b></span>
+            </div>
+            """, unsafe_allow_html=True)
 
-    # Execution Flow
-    if verify_btn and pil_image is not None:
-        run_verification_pipeline(pil_image, file_name, template_override, selected_policy)
+        # Verification Settings (Policy & Layout Mode)
+        with st.expander("Verification Risk Settings & Layout Options", expanded=False):
+            c_set1, c_set2 = st.columns(2)
+            with c_set1:
+                st.markdown("<b style='font-size:0.8rem; color:#10254A;'>Operating Risk Policy</b>" if is_hero else "<b style='font-size:0.8rem;'>Operating Risk Policy</b>", unsafe_allow_html=True)
+                policy_keys = [k for k, _, _ in POLICY_CHOICES]
+                policy_labels = {k: name for k, name, _ in POLICY_CHOICES}
+                selected_policy = st.selectbox(
+                    "Risk Policy",
+                    policy_keys,
+                    index=0,
+                    format_func=lambda k: policy_labels.get(k, k),
+                    key=f"policy_{container_type}",
+                    label_visibility="collapsed"
+                )
+
+            with c_set2:
+                st.markdown("<b style='font-size:0.8rem; color:#10254A;'>Document Layout Mode</b>" if is_hero else "<b style='font-size:0.8rem;'>Document Layout Mode</b>", unsafe_allow_html=True)
+                doc_mode = st.radio(
+                    "Layout Mode",
+                    ["Auto AI Detection", "Manual Template"],
+                    horizontal=True,
+                    key=f"mode_{container_type}",
+                    label_visibility="collapsed"
+                )
+
+            template_override = None
+            if doc_mode == "Manual Template":
+                manual_keys = [k for k, _ in DOCUMENT_TYPE_CHOICES if k != "auto"]
+                manual_labels = {k: label for k, label in DOCUMENT_TYPE_CHOICES}
+                default_idx = 0
+                if tpl_from_url and tpl_from_url in manual_keys:
+                    default_idx = manual_keys.index(tpl_from_url)
+                template_override = st.selectbox(
+                    "Select Specific Template",
+                    manual_keys,
+                    index=default_idx,
+                    format_func=lambda k: manual_labels.get(k, k),
+                    key=f"manual_tpl_{container_type}"
+                )
+
+        # Stale Session Prevention & Image Loading
+        pil_image = None
+        file_name = "uploaded_document.jpg"
+
+        if uploaded_file is not None:
+            if st.session_state.get("current_doc_id") != uploaded_file.name:
+                st.session_state["current_doc_id"] = uploaded_file.name
+                st.session_state.pop("last_result", None)
+                st.session_state.pop("last_file_name", None)
+
+            try:
+                pil_image = Image.open(uploaded_file).convert("RGB")
+                file_name = uploaded_file.name
+                badge_bg = "#F0F5FC" if is_hero else "rgba(7, 91, 255, 0.08)"
+                badge_border = "#B9CCE8" if is_hero else "rgba(7, 91, 255, 0.25)"
+                title_color = "#10254A" if is_hero else "#FFFFFF"
+                st.markdown(f"""
+                <div style="background:{badge_bg}; border:1px solid {badge_border}; border-radius:10px; padding:10px 14px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#087BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        <span style="font-weight:700; font-size:0.85rem; color:{title_color};">{file_name}</span>
+                    </div>
+                    <span style="font-size:0.75rem; font-weight:700; color:#087BFF; background:#E0EDFF; padding:3px 8px; border-radius:6px;">{pil_image.width} × {pil_image.height} px</span>
+                </div>
+                """, unsafe_allow_html=True)
+            except Exception:
+                st.error("Invalid image file. Please upload a standard passport or identity document scan.")
+
+        # Primary Verify Document Action Button
+        btn_label = "Verify Document" if is_hero else "Verify Document Authenticity"
+        if uploaded_file is not None:
+            verify_btn = st.button(
+                btn_label,
+                type="primary",
+                use_container_width=True,
+                icon=":material/verified_user:" if is_hero else ":material/shield:",
+                key=f"btn_verify_{container_type}"
+            )
+        else:
+            st.button(
+                btn_label,
+                type="secondary",
+                disabled=True,
+                use_container_width=True,
+                icon=":material/verified_user:" if is_hero else ":material/shield:",
+                key=f"btn_disabled_{container_type}"
+            )
+            verify_btn = False
+
+        # Execution Flow
+        if verify_btn and pil_image is not None:
+            run_verification_pipeline(pil_image, file_name, template_override, selected_policy)
 
     return pil_image, file_name
 

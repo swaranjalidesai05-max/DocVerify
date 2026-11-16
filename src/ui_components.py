@@ -983,34 +983,57 @@ def get_enterprise_css(theme: str = "dark") -> str:
         margin-bottom: 24px;
         font-weight: 400;
     }}
+    /* Hero Feature Bullets - Modern Indicators */
     .dv-ref-feat-list {{
         display: flex;
         flex-direction: column;
-        gap: 14px;
+        gap: 12px;
+        margin-top: 6px;
     }}
     .dv-ref-feat-row {{
         display: flex;
         align-items: center;
         gap: 12px;
-        font-size: 0.95rem;
-        font-weight: 700;
-        color: #FFFFFF;
+        padding: 6px 10px;
+        border-radius: 10px;
+        transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+        cursor: default;
     }}
-    .dv-ref-feat-icon-circ {{
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        background: rgba(11, 40, 85, 0.9);
-        border: 1.5px solid #087BFF;
+    .dv-ref-feat-row:hover {{
+        background: rgba(8, 123, 255, 0.08);
+        transform: translateX(4px);
+    }}
+    .dv-ref-feat-badge {{
+        width: 26px;
+        height: 26px;
+        border-radius: 7px;
+        background: rgba(0, 200, 255, 0.10);
+        border: 1px solid rgba(0, 200, 255, 0.35);
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #00C8FF;
         flex-shrink: 0;
-        box-shadow: 0 0 10px rgba(8, 123, 255, 0.35);
+        box-shadow: 0 0 12px rgba(0, 200, 255, 0.22);
+        transition: all 0.22s ease;
+    }}
+    .dv-ref-feat-row:hover .dv-ref-feat-badge {{
+        background: rgba(0, 200, 255, 0.18);
+        border-color: #00C8FF;
+        box-shadow: 0 0 16px rgba(0, 200, 255, 0.40);
+        transform: scale(1.06);
+    }}
+    .dv-ref-feat-label {{
+        font-size: 0.94rem;
+        font-weight: 600;
+        color: #E2E8F0;
+        letter-spacing: -0.01em;
+        transition: color 0.22s ease;
+    }}
+    .dv-ref-feat-row:hover .dv-ref-feat-label {{
+        color: #FFFFFF;
     }}
 
-    /* Hero Center Illustration */
+    /* Hero Center Illustration - Background Blended & Glow */
     .dv-hero-illustration-wrap {{
         display: flex;
         align-items: center;
@@ -1018,31 +1041,54 @@ def get_enterprise_css(theme: str = "dark") -> str:
         width: 100%;
         position: relative;
         padding: 0 4px;
+        background: transparent !important;
+    }}
+    .dv-hero-illustration-glow {{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        max-width: 480px;
+        max-height: 440px;
+        background: radial-gradient(circle at 50% 55%, rgba(0, 200, 255, 0.16) 0%, rgba(8, 123, 255, 0.10) 38%, rgba(6, 23, 53, 0) 70%);
+        pointer-events: none;
+        z-index: 1;
     }}
     .dv-hero-illustration-img {{
         width: 100%;
-        max-width: 460px;
+        max-width: 470px;
         height: auto;
         display: block;
         object-fit: contain;
-        filter: drop-shadow(0 0 35px rgba(0, 200, 255, 0.28)) drop-shadow(0 15px 35px rgba(0, 0, 0, 0.5));
-        border-radius: 16px;
+        position: relative;
+        z-index: 2;
+        background: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        filter: drop-shadow(0 0 24px rgba(0, 200, 255, 0.24));
+        -webkit-mask-image: radial-gradient(ellipse 94% 90% at 50% 50%, black 72%, transparent 100%);
+        mask-image: radial-gradient(ellipse 94% 90% at 50% 50%, black 72%, transparent 100%);
     }}
 
-    /* Reference White Upload Card */
-    .dv-ref-upload-card {{
+    /* Unified Hero Upload Card Container - Combined Inside One Card */
+    .st-key-dv_hero_upload_card,
+    .st-key-dv_hero_upload_card [data-testid="stVerticalBlockBorderWrapper"],
+    .st-key-dv_hero_upload_card > div {{
         background: #FFFFFF !important;
-        border-radius: 22px !important;
-        padding: 28px 24px 22px 24px !important;
-        box-shadow: 0 24px 60px rgba(0, 10, 30, 0.45) !important;
-        border: 1px solid rgba(255, 255, 255, 0.95) !important;
+        border-radius: 24px !important;
+        padding: 24px 22px 20px 22px !important;
+        box-shadow: 0 24px 60px rgba(0, 10, 30, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.95) !important;
+        border: none !important;
         color: #10254A !important;
     }}
-    .dv-ref-card-header {{
+    .st-key-dv_hero_upload_card .dv-ref-card-header {{
         text-align: center;
-        margin-bottom: 16px;
+        margin-bottom: 12px;
     }}
-    .dv-ref-card-icon {{
+    .st-key-dv_hero_upload_card .dv-ref-card-icon {{
         width: 44px;
         height: 44px;
         margin: 0 auto 6px auto;
@@ -1051,7 +1097,7 @@ def get_enterprise_css(theme: str = "dark") -> str:
         justify-content: center;
         color: #087BFF;
     }}
-    .dv-ref-card-title {{
+    .st-key-dv_hero_upload_card .dv-ref-card-title {{
         font-size: 1.45rem;
         font-weight: 800;
         color: #10254A;
@@ -1059,28 +1105,33 @@ def get_enterprise_css(theme: str = "dark") -> str:
         margin-bottom: 4px;
         line-height: 1.2;
     }}
-    .dv-ref-card-subtitle {{
+    .st-key-dv_hero_upload_card .dv-ref-card-subtitle {{
         font-size: 0.85rem;
         color: #5F6E84;
         font-weight: 500;
         line-height: 1.4;
     }}
 
-    /* Dropzone area within card */
-    .dv-ref-upload-card [data-testid="stFileUploader"] {{
+    /* Dropzone area within unified card */
+    .st-key-dv_hero_upload_card [data-testid="stFileUploader"] {{
         background: #F0F5FC !important;
         border: 1.5px dashed #B9CCE8 !important;
         border-radius: 14px !important;
         padding: 14px 10px !important;
         text-align: center !important;
-        margin-bottom: 8px !important;
+        margin-bottom: 6px !important;
+        transition: all 0.2s ease !important;
     }}
-    .dv-ref-upload-card [data-testid="stFileUploader"] section {{
+    .st-key-dv_hero_upload_card [data-testid="stFileUploader"]:hover {{
+        border-color: #087BFF !important;
+        background: #EAF2FF !important;
+    }}
+    .st-key-dv_hero_upload_card [data-testid="stFileUploader"] section {{
         background: transparent !important;
         padding: 0 !important;
     }}
-    .dv-ref-upload-card [data-testid="stFileUploader"] [data-testid="stBaseButton-secondary"],
-    .dv-ref-upload-card [data-testid="stFileUploader"] button {{
+    .st-key-dv_hero_upload_card [data-testid="stFileUploader"] [data-testid="stBaseButton-secondary"],
+    .st-key-dv_hero_upload_card [data-testid="stFileUploader"] button {{
         background: #087BFF !important;
         color: #FFFFFF !important;
         border-radius: 8px !important;
@@ -1090,22 +1141,69 @@ def get_enterprise_css(theme: str = "dark") -> str:
         border: none !important;
         box-shadow: 0 4px 12px rgba(8, 123, 255, 0.35) !important;
     }}
-    .dv-ref-upload-card [data-testid="stFileUploader"] button:hover {{
+    .st-key-dv_hero_upload_card [data-testid="stFileUploader"] button:hover {{
         background: #0062D6 !important;
     }}
-    .dv-ref-upload-card [data-testid="stFileUploader"] span,
-    .dv-ref-upload-card [data-testid="stFileUploader"] p,
-    .dv-ref-upload-card [data-testid="stFileUploader"] small {{
+    .st-key-dv_hero_upload_card [data-testid="stFileUploader"] span,
+    .st-key-dv_hero_upload_card [data-testid="stFileUploader"] p,
+    .st-key-dv_hero_upload_card [data-testid="stFileUploader"] small {{
         color: #475569 !important;
     }}
-    .dv-ref-formats-note {{
-        font-size: 0.72rem;
-        color: #7E90A8;
+    .st-key-dv_hero_upload_card .dv-ref-formats-note {{
+        font-size: 0.74rem;
+        color: #64748B;
         text-align: center;
-        margin-top: 6px;
-        margin-bottom: 14px;
+        margin-top: 4px;
+        margin-bottom: 12px;
         font-weight: 500;
         letter-spacing: 0.01em;
+    }}
+
+    /* Expander inside Card */
+    .st-key-dv_hero_upload_card [data-testid="stExpander"] {{
+        background: #F8FAFC !important;
+        border: 1px solid #E2E8F0 !important;
+        border-radius: 10px !important;
+        margin-bottom: 12px !important;
+    }}
+    .st-key-dv_hero_upload_card [data-testid="stExpander"] summary {{
+        color: #10254A !important;
+        font-weight: 600 !important;
+        font-size: 0.82rem !important;
+    }}
+    .st-key-dv_hero_upload_card [data-testid="stExpander"] b,
+    .st-key-dv_hero_upload_card [data-testid="stExpander"] label,
+    .st-key-dv_hero_upload_card [data-testid="stExpander"] span,
+    .st-key-dv_hero_upload_card [data-testid="stExpander"] p {{
+        color: #10254A !important;
+    }}
+
+    /* Verify Button inside Unified Card */
+    .st-key-dv_hero_upload_card [data-testid="baseButton-primary"],
+    .st-key-dv_hero_upload_card button[kind="primary"] {{
+        background: #087BFF !important;
+        color: #FFFFFF !important;
+        border-radius: 12px !important;
+        font-size: 1rem !important;
+        font-weight: 700 !important;
+        padding: 12px 20px !important;
+        box-shadow: 0 6px 18px rgba(8, 123, 255, 0.4) !important;
+        border: none !important;
+    }}
+    .st-key-dv_hero_upload_card [data-testid="baseButton-primary"]:hover,
+    .st-key-dv_hero_upload_card button[kind="primary"]:hover {{
+        background: #0062D6 !important;
+        box-shadow: 0 8px 24px rgba(8, 123, 255, 0.5) !important;
+    }}
+    .st-key-dv_hero_upload_card [data-testid="baseButton-secondary"],
+    .st-key-dv_hero_upload_card button[kind="secondary"] {{
+        background: #0B2855 !important;
+        color: #A9BEDD !important;
+        border-radius: 12px !important;
+        font-size: 1rem !important;
+        font-weight: 700 !important;
+        padding: 12px 20px !important;
+        border: none !important;
     }}
 
     /* Reference Supported Documents Section (10 Countries) */
@@ -1156,13 +1254,27 @@ def get_enterprise_css(theme: str = "dark") -> str:
         color: #A9BEDD;
         margin-top: 2px;
     }}
+    .dv-sup-card-link {{
+        text-decoration: none !important;
+        color: inherit !important;
+        display: flex;
+        flex: 1;
+        min-width: 0;
+    }}
     .dv-sup-card-item {{
         display: flex;
         flex-direction: column;
-        gap: 3px;
-        padding: 0 10px;
+        gap: 4px;
+        padding: 8px 10px;
         border-right: 1px solid rgba(8, 123, 255, 0.15);
+        border-radius: 8px;
         flex-shrink: 0;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        cursor: pointer;
+    }}
+    .dv-sup-card-item:hover {{
+        background: rgba(8, 123, 255, 0.15);
+        transform: translateY(-2px);
     }}
     .dv-sup-card-item:last-child {{
         border-right: none;
@@ -1170,18 +1282,25 @@ def get_enterprise_css(theme: str = "dark") -> str:
     .dv-sup-card-top {{
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: 7px;
     }}
-    .dv-sup-flag-circ {{
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
+    .dv-sup-flag-box {{
+        width: 24px;
+        height: 16px;
+        border-radius: 3px;
         overflow: hidden;
         flex-shrink: 0;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 0 6px rgba(0,0,0,0.4);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+    }}
+    .dv-sup-flag-svg {{
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
     }}
     .dv-sup-code-tag {{
         font-size: 0.72rem;
@@ -1491,34 +1610,36 @@ Detect forged, tampered or invalid identity documents from multiple countries us
 </div>
 <div class="dv-ref-feat-list">
 <div class="dv-ref-feat-row">
-<div class="dv-ref-feat-icon-circ">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00C8FF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+<div class="dv-ref-feat-badge">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00C8FF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+<polyline points="9 12 11 14 15 10"/>
+</svg>
+</div>
+<span class="dv-ref-feat-label">Authenticity Verification</span>
+</div>
+<div class="dv-ref-feat-row">
+<div class="dv-ref-feat-badge">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00C8FF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="10"/>
 <path d="m9 12 2 2 4-4"/>
+<line x1="12" y1="2" x2="12" y2="6"/>
+<line x1="12" y1="18" x2="12" y2="22"/>
+<line x1="2" y1="12" x2="6" y2="12"/>
+<line x1="18" y1="12" x2="22" y2="12"/>
 </svg>
 </div>
-<span>Authenticity Verification</span>
+<span class="dv-ref-feat-label">Tamper &amp; Manipulation Detection</span>
 </div>
 <div class="dv-ref-feat-row">
-<div class="dv-ref-feat-icon-circ">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00C8FF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-<polygon points="12 2 2 7 12 12 22 7 12 2"/>
-<polyline points="2 17 12 22 22 17"/>
-<polyline points="2 12 12 17 22 12"/>
-</svg>
-</div>
-<span>Tamper &amp; Manipulation Detection</span>
-</div>
-<div class="dv-ref-feat-row">
-<div class="dv-ref-feat-icon-circ">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00C8FF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+<div class="dv-ref-feat-badge">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00C8FF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
 <polyline points="14 2 14 8 20 8"/>
-<line x1="16" y1="13" x2="8" y2="13"/>
-<line x1="16" y1="17" x2="8" y2="17"/>
+<polyline points="9 13 11 15 15 11"/>
 </svg>
 </div>
-<span>Detailed Verification Report</span>
+<span class="dv-ref-feat-label">Detailed Verification Report</span>
 </div>
 </div>
 </div>"""
@@ -1528,9 +1649,12 @@ def render_hero_illustration_html() -> str:
     """
     Renders Reference Image 2 as the central hero illustration asset.
     Preserves original proportions, dotted world map, passport, identity card,
-    scanning brackets and security shield with ambient blue glow.
+    scanning brackets and security shield with ambient blue glow, seamlessly blended
+    into the dark navy background without harsh rectangular image boundaries.
     """
-    opt_path = BASE_DIR / "assets" / "hero_illustration_opt.png"
+    opt_path = BASE_DIR / "assets" / "hero_illustration_seamless.png"
+    if not opt_path.exists():
+        opt_path = BASE_DIR / "assets" / "hero_illustration_opt.png"
     if not opt_path.exists():
         opt_path = BASE_DIR / "assets" / "hero_illustration_blended.png"
     if not opt_path.exists():
@@ -1539,6 +1663,7 @@ def render_hero_illustration_html() -> str:
     if opt_path.exists():
         b64_val = base64.b64encode(opt_path.read_bytes()).decode("utf-8")
         return f"""<div class="dv-hero-illustration-wrap">
+<div class="dv-hero-illustration-glow"></div>
 <img src="data:image/png;base64,{b64_val}" class="dv-hero-illustration-img" alt="DocVerify AI Hero Illustration Asset" />
 </div>"""
     return ""
@@ -1554,7 +1679,8 @@ def render_cards_stack_svg() -> str:
 def render_supported_documents_bar() -> str:
     """
     Renders the horizontal Supported Documents bar matching Reference Image 1:
-    Contains all 10 supported document standards from 10 international jurisdictions:
+    Contains all 10 supported document standards from 10 international jurisdictions
+    with actual, high-precision country flags:
     1. Albania – National ID (ALB)
     2. Azerbaijan – Passport (AZE)
     3. Spain – National ID (DNI) (ESP)
@@ -1567,38 +1693,40 @@ def render_supported_documents_bar() -> str:
     10. Slovenia – National ID (SVN)
     """
     cards_data = [
-        ("ALB", "Albania", "National ID",
-         '<circle cx="10" cy="10" r="10" fill="#D52B1E"/><path d="M10 5 L11.5 7 L14 6.5 L12.5 8.5 L15 10 L12.5 11 L14 13 L11.5 12.5 L10 14.5 L8.5 12.5 L6 13 L7.5 11 L5 10 L7.5 8.5 L6 6.5 L8.5 7 Z" fill="#111111"/>'),
-        ("AZE", "Azerbaijan", "Passport",
-         '<rect width="20" height="6.7" fill="#00B5E2"/><rect y="6.7" width="20" height="6.7" fill="#ED2939"/><rect y="13.4" width="20" height="6.7" fill="#3F9C35"/><path d="M9.5 8.5 A2 2 0 1 0 9.5 11.5 A1.6 1.6 0 1 1 9.5 8.5 Z" fill="#FFFFFF"/><circle cx="11.5" cy="10" r="0.8" fill="#FFFFFF"/>'),
-        ("ESP", "Spain", "National ID (DNI)",
-         '<rect width="20" height="5" fill="#AA151B"/><rect y="5" width="20" height="10" fill="#F1BF00"/><rect y="15" width="20" height="5" fill="#AA151B"/><circle cx="7" cy="10" r="1.8" fill="#C60B1E"/>'),
-        ("EST", "Estonia", "National ID",
-         '<rect width="20" height="6.7" fill="#0072CE"/><rect y="6.7" width="20" height="6.7" fill="#111111"/><rect y="13.4" width="20" height="6.7" fill="#FFFFFF"/>'),
-        ("FIN", "Finland", "National ID",
-         '<rect width="20" height="20" fill="#FFFFFF"/><rect x="6" width="3.5" height="20" fill="#002F6C"/><rect y="8" width="20" height="3.5" fill="#002F6C"/>'),
-        ("GRC", "Greece", "Passport",
-         '<rect width="20" height="20" fill="#0D5EAF"/><rect y="2.2" width="20" height="2.2" fill="#FFFFFF"/><rect y="6.6" width="20" height="2.2" fill="#FFFFFF"/><rect y="11" width="20" height="2.2" fill="#FFFFFF"/><rect y="15.4" width="20" height="2.2" fill="#FFFFFF"/><rect width="8.8" height="8.8" fill="#0D5EAF"/><rect x="3" width="2.8" height="8.8" fill="#FFFFFF"/><rect y="3" width="8.8" height="2.8" fill="#FFFFFF"/>'),
-        ("LVA", "Latvia", "Passport",
-         '<rect width="20" height="8" fill="#9E3039"/><rect y="8" width="20" height="4" fill="#FFFFFF"/><rect y="12" width="20" height="8" fill="#9E3039"/>'),
-        ("RUS", "Russia", "Internal Passport",
-         '<rect width="20" height="6.7" fill="#FFFFFF"/><rect y="6.7" width="20" height="6.7" fill="#0039A6"/><rect y="13.4" width="20" height="6.7" fill="#D52B1E"/>'),
-        ("SRB", "Serbia", "Passport",
-         '<rect width="20" height="6.7" fill="#C6363C"/><rect y="6.7" width="20" height="6.7" fill="#0C4076"/><rect y="13.4" width="20" height="6.7" fill="#FFFFFF"/><circle cx="7" cy="10" r="2" fill="#FFD700"/>'),
-        ("SVN", "Slovenia", "National ID",
-         '<rect width="20" height="6.7" fill="#FFFFFF"/><rect y="6.7" width="20" height="6.7" fill="#005CE6"/><rect y="13.4" width="20" height="6.7" fill="#ED1C24"/><circle cx="6.5" cy="7.5" r="1.6" fill="#005CE6"/>'),
+        ("ALB", "Albania", "National ID", "alb_id",
+         '<rect width="28" height="20" fill="#E41E20"/><path d="M14 5.5l1.2 1.8 2.2-.4-1.3 1.8 1.8 1.4-2.1.2.2 2.2-1.9-1.2-1.1 1.9-1.1-1.9-1.9 1.2.2-2.2-2.1-.2 1.8-1.4-1.3-1.8 2.2.4L14 5.5z" fill="#000000"/><circle cx="12.8" cy="6.2" r="0.8" fill="#000000"/><circle cx="15.2" cy="6.2" r="0.8" fill="#000000"/>'),
+        ("AZE", "Azerbaijan", "Passport", "aze_passport",
+         '<rect width="28" height="6.66" fill="#0092BC"/><rect y="6.66" width="28" height="6.67" fill="#E00034"/><rect y="13.33" width="28" height="6.67" fill="#009933"/><path d="M13.2 8.5a2.2 2.2 0 1 0 0 3 1.7 1.7 0 1 1 0-3z" fill="#FFFFFF"/><polygon points="15.5,9.2 16,9.8 16.8,9.7 16.4,10.3 16.8,11 16,10.8 15.5,11.5 15.3,10.7 14.5,10.7 15.1,10.2 14.7,9.6 15.4,9.8" fill="#FFFFFF"/>'),
+        ("ESP", "Spain", "National ID (DNI)", "esp_id",
+         '<rect width="28" height="5" fill="#AA151B"/><rect y="5" width="28" height="10" fill="#F1BF00"/><rect y="15" width="28" height="5" fill="#AA151B"/><path d="M8 7.5h2.8v3a1.4 1.4 0 0 1-2.8 0v-3z" fill="#AA151B"/><circle cx="9.4" cy="6.5" r="0.8" fill="#F1BF00"/>'),
+        ("EST", "Estonia", "National ID", "est_id",
+         '<rect width="28" height="6.66" fill="#0072CE"/><rect y="6.66" width="28" height="6.67" fill="#000000"/><rect y="13.33" width="28" height="6.67" fill="#FFFFFF"/>'),
+        ("FIN", "Finland", "National ID", "fin_id",
+         '<rect width="28" height="20" fill="#FFFFFF"/><rect x="8" width="4" height="20" fill="#002F6C"/><rect y="8" width="28" height="4" fill="#002F6C"/>'),
+        ("GRC", "Greece", "Passport", "grc_passport",
+         '<rect width="28" height="20" fill="#0D5EAF"/><rect y="2.22" width="28" height="2.22" fill="#FFFFFF"/><rect y="6.66" width="28" height="2.22" fill="#FFFFFF"/><rect y="11.11" width="28" height="2.22" fill="#FFFFFF"/><rect y="15.55" width="28" height="2.22" fill="#FFFFFF"/><rect width="11" height="11" fill="#0D5EAF"/><rect x="4" width="3" height="11" fill="#FFFFFF"/><rect y="4" width="11" height="3" fill="#FFFFFF"/>'),
+        ("LVA", "Latvia", "Passport", "lva_passport",
+         '<rect width="28" height="8" fill="#9E3039"/><rect y="8" width="28" height="4" fill="#FFFFFF"/><rect y="12" width="28" height="8" fill="#9E3039"/>'),
+        ("RUS", "Russia", "Internal Passport", "rus_internalpassport",
+         '<rect width="28" height="6.66" fill="#FFFFFF"/><rect y="6.66" width="28" height="6.67" fill="#0039A6"/><rect y="13.33" width="28" height="6.67" fill="#D52B1E"/>'),
+        ("SRB", "Serbia", "Passport", "srb_passport",
+         '<rect width="28" height="6.66" fill="#C6363C"/><rect y="6.66" width="28" height="6.67" fill="#0C4076"/><rect y="13.33" width="28" height="6.67" fill="#FFFFFF"/><path d="M9 6h3v4.5a1.5 1.5 0 0 1-3 0V6z" fill="#C6363C"/><polygon points="10.5,4 11.5,5.5 9.5,5.5" fill="#FFD700"/>'),
+        ("SVN", "Slovenia", "National ID", "svk_id",
+         '<rect width="28" height="6.66" fill="#FFFFFF"/><rect y="6.66" width="28" height="6.67" fill="#005CE6"/><rect y="13.33" width="28" height="6.67" fill="#ED1C24"/><path d="M8 4h3v3.5a1.5 1.5 0 0 1-3 0V4z" fill="#005CE6" stroke="#ED1C24" stroke-width="0.5"/><polygon points="9.5,4.5 10,5.5 9,5.5" fill="#FFD700"/>'),
     ]
 
     items_html = []
-    for code, name, doc_type, svg_inner in cards_data:
-        item = f"""<div class="dv-sup-card-item">
+    for code, name, doc_type, tpl_key, svg_inner in cards_data:
+        item = f"""<a href="?tpl={tpl_key}" class="dv-sup-card-link" title="Click to inspect {name} standard">
+<div class="dv-sup-card-item">
 <div class="dv-sup-card-top">
-<div class="dv-sup-flag-circ"><svg width="20" height="20" viewBox="0 0 20 20"><defs><clipPath id="c_{code}"><circle cx="10" cy="10" r="10"/></clipPath></defs><g clip-path="url(#c_{code})">{svg_inner}</g></svg></div>
+<div class="dv-sup-flag-box"><svg viewBox="0 0 28 20" class="dv-sup-flag-svg">{svg_inner}</svg></div>
 <span class="dv-sup-code-tag">{code}</span>
 </div>
 <div class="dv-sup-country-name">{name}</div>
 <div class="dv-sup-doc-type">{doc_type}</div>
-</div>"""
+</div>
+</a>"""
         items_html.append(item)
 
     cards_joined = "".join(items_html)
