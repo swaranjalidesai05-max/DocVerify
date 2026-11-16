@@ -153,7 +153,7 @@ def render_navbar():
         if st.button("Get Started", key="nav_btn_get_started", use_container_width=True):
             set_nav("upload")
 
-    st.markdown("<div style='height: 1px; background: rgba(8, 123, 255, 0.22); margin-top: 10px; margin-bottom: 24px;'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='height: 1px; background: rgba(8, 123, 255, 0.22); margin-top: 4px; margin-bottom: 10px;'></div>", unsafe_allow_html=True)
 
 
 # ==============================================================================
@@ -335,37 +335,15 @@ def render_upload_card(container_type="hero"):
 # SECTION: Verification Processing Flow (8 Real Stages)
 # ==============================================================================
 def run_verification_pipeline(pil_image, file_name, template_override, selected_policy):
-    """Executes the complete multi-modal AI verification pipeline with visual stage indicators."""
-    progress_slot = st.empty()
-
-    with progress_slot.container():
-        st.markdown("""
-        <div class="dv-card" style="border-color:var(--dv-accent); box-shadow:0 0 24px rgba(7, 91, 255, 0.25);">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
-                <div class="dv-pipeline-num" style="background:var(--dv-accent); color:#FFFFFF;">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
-                <div>
-                    <div style="font-size:1.1rem; font-weight:700; color:var(--dv-text-main);">AI Multi-Modal Verification Active</div>
-                    <div style="font-size:0.8rem; color:var(--dv-text-secondary);">Executing 8-stage authentication protocol on native image sensors...</div>
-                </div>
-            </div>
-            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
-                <div class="dv-stage-item"><span class="dv-stage-dot-done"></span> <span>1. Document Upload &amp; Safe Ingestion</span></div>
-                <div class="dv-stage-item"><span class="dv-stage-dot-done"></span> <span>2. Image RGB Normalization &amp; Resizing</span></div>
-                <div class="dv-stage-item"><span class="dv-stage-dot-spin"></span> <span>3. Global CNN Visual Feature Extraction</span></div>
-                <div class="dv-stage-item"><span class="dv-stage-dot-spin"></span> <span>4. Local Native-Scale Patch Verification</span></div>
-                <div class="dv-stage-item"><span class="dv-stage-dot-spin"></span> <span>5. Digital Forensics (ELA, Noise &amp; Edges)</span></div>
-                <div class="dv-stage-item"><span class="dv-stage-dot-spin"></span> <span>6. Semantic OCR Typography &amp; Syntax Rules</span></div>
-                <div class="dv-stage-item"><span class="dv-stage-dot-spin"></span> <span>7. Multi-Modal Evidence Fusion Engine</span></div>
-                <div class="dv-stage-item"><span class="dv-stage-dot-spin"></span> <span>8. Isotonic Probability Risk Assessment</span></div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-        engine = load_docverify_engine()
-        t0 = time.time()
-        try:
+    """
+    Executes the multi-modal AI verification pipeline cleanly in the backend
+    without injecting visual stage dashboards into the hero or upload card,
+    then navigates directly to the comprehensive Verification Results dashboard.
+    """
+    engine = load_docverify_engine()
+    t0 = time.time()
+    try:
+        with st.spinner("Verifying document authenticity with AI models..."):
             inference_result = engine.verify_document(
                 pil_image,
                 filename_hint=file_name,
@@ -376,14 +354,10 @@ def run_verification_pipeline(pil_image, file_name, template_override, selected_
             inference_result["input_filename"] = file_name
             st.session_state["last_result"] = inference_result
             st.session_state["last_file_name"] = file_name
-            st.session_state["nav_section"] = "upload"  # Navigate directly to results
-        except Exception as e:
-            st.error(f"The system encountered an error while verifying the document: {e}")
-            progress_slot.empty()
-            return
-
-    progress_slot.empty()
-    st.rerun()
+            st.session_state["nav_section"] = "upload"  # Navigate directly to Results view
+            st.rerun()
+    except Exception as e:
+        st.error(f"Verification pipeline failed: {e}")
 
 
 # ==============================================================================
@@ -752,7 +726,7 @@ def render_home_page():
     # 1. Left: Headline & 3 Feature Bullets
     # 2. Center: Reference Image 2 Hero Illustration Asset
     # 3. Right: High-contrast White Upload Card
-    hero_col_left, hero_col_center, hero_col_right = st.columns([1.16, 1.05, 1.15], gap="medium", vertical_alignment="center")
+    hero_col_left, hero_col_center, hero_col_right = st.columns([1.16, 1.05, 1.15], gap="medium", vertical_alignment="top")
 
     with hero_col_left:
         st.html(render_hero_left_section())

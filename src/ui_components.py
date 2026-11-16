@@ -197,7 +197,7 @@ def get_enterprise_css(theme: str = "dark") -> str:
     /* Main Container Padding */
     .main .block-container {{
         max-width: 1280px !important;
-        padding-top: 1.2rem !important;
+        padding-top: 0.35rem !important;
         padding-bottom: 4rem !important;
         padding-left: 2rem !important;
         padding-right: 2rem !important;
@@ -939,8 +939,9 @@ def get_enterprise_css(theme: str = "dark") -> str:
     .dv-ref-hero-left {{
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        padding: 4px 0;
+        justify-content: flex-start;
+        padding: 0;
+        margin-top: 0;
     }}
     .dv-ref-hero-pill {{
         display: inline-flex;
@@ -1033,32 +1034,47 @@ def get_enterprise_css(theme: str = "dark") -> str:
         color: #FFFFFF;
     }}
 
-    /* Hero Center Illustration - Background Blended & Glow */
+    /* Hero Center Illustration - Vibrant Foreground with Deep Midnight Backdrop */
     .dv-hero-illustration-wrap {{
         display: flex;
         align-items: center;
         justify-content: center;
         width: 100%;
         position: relative;
-        padding: 0 4px;
+        padding: 0 !important;
+        margin-top: 0 !important;
         background: transparent !important;
     }}
-    .dv-hero-illustration-glow {{
+    .dv-hero-illustration-dark-bg {{
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 100%;
-        height: 100%;
-        max-width: 480px;
-        max-height: 440px;
-        background: radial-gradient(circle at 50% 55%, rgba(0, 200, 255, 0.16) 0%, rgba(8, 123, 255, 0.10) 38%, rgba(6, 23, 53, 0) 70%);
+        width: 104%;
+        height: 104%;
+        max-width: 490px;
+        max-height: 450px;
+        background: radial-gradient(ellipse at 50% 50%, #020713 25%, #040D24 58%, rgba(4, 13, 36, 0) 80%);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 1;
+    }}
+    .dv-hero-illustration-glow {{
+        position: absolute;
+        top: 52%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 95%;
+        height: 90%;
+        max-width: 450px;
+        max-height: 410px;
+        background: radial-gradient(circle at 50% 55%, rgba(0, 190, 255, 0.12) 0%, rgba(8, 91, 255, 0.05) 45%, transparent 70%);
         pointer-events: none;
         z-index: 1;
     }}
     .dv-hero-illustration-img {{
         width: 100%;
-        max-width: 470px;
+        max-width: 475px;
         height: auto;
         display: block;
         object-fit: contain;
@@ -1068,9 +1084,8 @@ def get_enterprise_css(theme: str = "dark") -> str:
         border: none !important;
         border-radius: 0 !important;
         box-shadow: none !important;
-        filter: drop-shadow(0 0 24px rgba(0, 200, 255, 0.24));
-        -webkit-mask-image: radial-gradient(ellipse 94% 90% at 50% 50%, black 72%, transparent 100%);
-        mask-image: radial-gradient(ellipse 94% 90% at 50% 50%, black 72%, transparent 100%);
+        opacity: 1 !important;
+        filter: drop-shadow(0 0 28px rgba(0, 190, 255, 0.22));
     }}
 
     /* Unified Hero Upload Card Container - Combined Inside One Card */
@@ -1616,7 +1631,7 @@ Detect forged, tampered or invalid identity documents from multiple countries us
 <polyline points="9 12 11 14 15 10"/>
 </svg>
 </div>
-<span class="dv-ref-feat-label">Authenticity Verification</span>
+<span class="dv-ref-feat-label">AI-Powered Authenticity Verification</span>
 </div>
 <div class="dv-ref-feat-row">
 <div class="dv-ref-feat-badge">
@@ -1639,7 +1654,7 @@ Detect forged, tampered or invalid identity documents from multiple countries us
 <polyline points="9 13 11 15 15 11"/>
 </svg>
 </div>
-<span class="dv-ref-feat-label">Detailed Verification Report</span>
+<span class="dv-ref-feat-label">Detailed Verification Reports</span>
 </div>
 </div>
 </div>"""
@@ -1663,6 +1678,7 @@ def render_hero_illustration_html() -> str:
     if opt_path.exists():
         b64_val = base64.b64encode(opt_path.read_bytes()).decode("utf-8")
         return f"""<div class="dv-hero-illustration-wrap">
+<div class="dv-hero-illustration-dark-bg"></div>
 <div class="dv-hero-illustration-glow"></div>
 <img src="data:image/png;base64,{b64_val}" class="dv-hero-illustration-img" alt="DocVerify AI Hero Illustration Asset" />
 </div>"""
